@@ -1,0 +1,38 @@
+.navigation__auth {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.navigation__auth_link {
+  color: #000;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+	line-height: 16px;
+}
+
+.navigation__auth_link:hover {
+  opacity: 0.8;
+}
+
+.navigation__auth_type_register {
+	background-color: inherit;
+	margin-right: 30px;
+}
+
+.navigation__auth_type_login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+	width: 76px;
+	height: 32px;
+	border-radius: 3px;
+	background-color: #2BE080;
+}
+
+.navigation__auth_type_login:last-child {
+	margin-right: 70px;
+}

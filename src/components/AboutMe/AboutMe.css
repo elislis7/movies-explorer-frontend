@@ -1,0 +1,67 @@
+.student {
+	max-width: 1140px;
+	margin: 0 auto;
+	margin-top: 110px;
+  margin-bottom: 100px;
+}
+
+.student__title {
+	font-size: 22px;
+	font-weight: 400;
+	line-height: 25px;
+  letter-spacing: -0.04em;
+	padding-bottom: 23px;
+	border-bottom: 1px solid #000000;
+	margin-bottom: 66px;
+}
+
+.student__description {
+	display: flex;
+}
+
+.student__info {
+	max-width: 600px;
+	margin-right: 270px;
+}
+
+.student__name {
+	font-size: 50px;
+	font-weight: 400;
+	line-height: 58px;
+  letter-spacing: -0.04em;     
+	margin-bottom: 18px;
+}
+
+.student__about {
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 20px;
+	margin-bottom: 26px;
+}
+
+.student__info-description {
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 22px;
+  margin-bottom: 99px;
+}
+
+.student__link {
+	font-size: 14px;
+	font-weight: 500;
+  line-height: 17px;
+	text-decoration: none;
+  color: #000000;
+  cursor: pointer;
+}
+
+.student__link:hover {
+  opacity: 0.8;
+}
+
+.student__avatar {
+	width: 270px;
+	height: 327px;
+  object-fit: cover;
+	border-radius: 10px;  
+}
