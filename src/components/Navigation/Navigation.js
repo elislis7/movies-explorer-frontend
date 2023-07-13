@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import './Navigation.css';
 
-import account from '../../images/не уменьшеный формат/account.svg';
+import account from '../../images/account.svg';
 
 function Navigation() {
   return (
@@ -16,7 +16,7 @@ function Navigation() {
 
       <button class="account">
         <div class="account__text">Аккаунт</div>
-        <Link className='account__link-icon'>
+        <Link className='account__link-icon' to='/profile'>
           <img class="account__icon" src={account} alt="иконка человечка" />
         </Link>
       </button>

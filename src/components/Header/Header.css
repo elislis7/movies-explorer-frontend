@@ -11,14 +11,6 @@
   align-items: center;
 }
 
-.header__link {
-  cursor: pointer;
-}
-
-.header__link:hover {
-  opacity: 0.8;
-}
-
 .header__logo {
 	margin-top: 18px;
 	margin-left: 70px;

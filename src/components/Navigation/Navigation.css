@@ -1,6 +1,8 @@
 .header__navigation {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  width: 60%;
 }
 
 .header__link_movies {
@@ -11,9 +13,9 @@
   color: #000000;
 }
 
-/* .header__link_movies:hover {
+.header__link_movies:hover {
   opacity: 0.8;
-} */
+}
 
 .header__link_movies:not(:last-child) {
   padding-right: 16px;
@@ -61,7 +63,4 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.account__icon {
 }

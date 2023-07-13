@@ -1,7 +1,8 @@
 .footer {
 	background-color: #FAFAFA;
-	/* убрать после оформление стилей */ 
-	margin-bottom: 100px;
+	width: 100%;
+	top: 0;
+	bottom: 0;
 }
 
 .footer__container {

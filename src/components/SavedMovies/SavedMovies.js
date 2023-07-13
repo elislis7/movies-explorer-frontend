@@ -1,50 +1,67 @@
 import React from 'react';
-import movie from '../../images/не уменьшеный формат/pic__COLOR_pic.png';
-import remove from '../../images/не уменьшеный формат/delete.svg';
-/* import { Link } from "react-router-dom"; */
+
+import SearchForm from '../Movies/SearchForm/SearchForm';
+
+import image1 from '../../images/1.png';
+import image2 from '../../images/2.png';
+import image3 from '../../images/3.png';
+
 import './SavedMovies.css'
 
 function SavedMovies() {
-  return (
-    <section class="elements" id="element-template">
-    <div class="element">
-      <div class="element__designation">
-        <h2 class="element__title">В погоне за Бенкси</h2>
-        <p class="element__time">27 минут</p>
-      </div>
-      <img class="element__image" src={movie} alt="#"/>
-      <div class="element__container_save">
-        <button class="element__delete" type="button" name="button" aria-label="Кнопка сохранения фильма">
-          <img class="element__delete_image" src={remove} alt=""/>
-        </button>
-      </div>
-    </div>
-    <div class="element">
-      <div class="element__designation">
-        <h2 class="element__title">В погоне за Бенкси</h2>
-        <p class="element__time">27 минут</p>
-      </div>
-      <img class="element__image" src={movie} alt="#"/>
-      <div class="element__container_save">
-        <button class="element__delete" type="button" name="button" aria-label="Кнопка сохранения фильма">
-          <img class="element__delete_image" src={remove} alt=""/>
-        </button>
-      </div>
-    </div>
-    <div class="element">
-      <div class="element__designation">
-        <h2 class="element__title">В погоне за Бенкси</h2>
-        <p class="element__time">27 минут</p>
-      </div>
-      <img class="element__image" src={movie} alt="#"/>
-      <div class="element__container_save">
-        <button class="element__delete" type="button" name="button" aria-label="Кнопка сохранения фильма">
-          <img class="element__delete_image" src={remove} alt=""/>
-        </button>
-      </div>
-    </div>
-  </section>
-  );
+	return (
+
+		<main className='saved-movies'>
+			<SearchForm />
+			<section class="movies">
+				<div  class="movie">
+					<div class="movie__description">
+						<h2 class="movie__title">В погоне за Бенкси</h2>
+						<p class="movie__duration">27 минут</p>
+					</div>
+					<img class="movie__image" src={image1} alt="#"/>
+					<div class="movie__container_buttons">
+						<button 
+							class="movie__buttons element__delete" 
+							type="button" 
+							name="button" 
+							aria-label="Кнопка сохранения фильма">
+						</button>
+					</div>
+				</div>
+				<div  class="movie">
+					<div class="movie__description">
+						<h2 class="movie__title">В погоне за Бенкси</h2>
+						<p class="movie__duration">27 минут</p>
+					</div>
+					<img class="movie__image" src={image2} alt="#"/>
+					<div class="movie__container_buttons">
+						<button 
+							class="movie__buttons element__delete" 
+							type="button" 
+							name="button" 
+							aria-label="Кнопка сохранения фильма">
+						</button>
+					</div>
+				</div>
+				<div  class="movie">
+					<div class="movie__description">
+						<h2 class="movie__title">В погоне за Бенкси</h2>
+						<p class="movie__duration">27 минут</p>
+					</div>
+					<img class="movie__image" src={image3} alt="#"/>
+					<div class="movie__container_buttons">
+						<button 
+							class="movie__buttons element__delete" 
+							type="button" 
+							name="button" 
+							aria-label="Кнопка сохранения фильма">
+						</button>
+					</div>
+				</div>
+			</section>
+		</main>
+	);
 }
 
 export default SavedMovies;

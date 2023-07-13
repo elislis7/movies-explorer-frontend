@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import './FormAuth.css';
 
-import logo from '../../images/не уменьшеный формат/logo.svg';
+import logo from '../../images/logo.svg';
 
 function FormAuth(props) {
 

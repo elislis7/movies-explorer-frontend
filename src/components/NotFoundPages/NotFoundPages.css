@@ -1,0 +1,35 @@
+.page__error {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page__error_title {
+  font-size: 140px;
+  font-weight: 400;
+  line-height: 148px;
+  margin-top: 245px;
+  margin-bottom: 5px;
+}
+
+.page__error_subtitle {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+  margin-bottom: 184px;
+}
+
+.page__error_button-back {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #2BE080;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.page__error_button-back:hover {
+  opacity: 0.8;
+}
