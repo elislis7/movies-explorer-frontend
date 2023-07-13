@@ -10,7 +10,7 @@ function Portfolio() {
       <p className='portfolio__title'>Портфолио</p>
       <a
         className="portfolio__link" 
-        href="https://github.com/elislis7/how-to-learn/" 
+        href="https://elislis7.github.io/how-to-learn/" 
         target='_blank'>
         <p className="portfolio__text">Статичный сайт</p>
         <img className="portfolio__image" src={arrow} alt="стрелочка вверх" />
