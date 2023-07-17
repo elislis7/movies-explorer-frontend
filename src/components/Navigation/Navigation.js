@@ -9,7 +9,7 @@ import account from '../../images/account.svg';
 function Navigation() {
   return (
     <div className='header__navigation'>
-      <nav class="header__link">
+      <nav class="header__link_nav">
         <Link class="header__link_movies active" to='/movies'>Фильмы</Link>
         <Link class="header__link_movies" to='/saved-movies'>Сохранённые фильмы</Link>
       </nav>

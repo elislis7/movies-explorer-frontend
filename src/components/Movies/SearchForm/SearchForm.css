@@ -1,13 +1,12 @@
 .search {
-	width: 1140px;
+	max-width: 1140px;
 	padding-bottom: 49px;
-	margin: auto;
-	margin-top: 70px;
+	margin: 144px auto 0;
 }
 
 .search__container {
 	display: flex;
-  	border-bottom: 1px solid #E8E8E8;
+  border-bottom: 1px solid #E8E8E8;
 	margin-bottom: 30px;
 }
 
@@ -22,10 +21,11 @@
 	display: flex;
 	align-items: center;
 	margin-bottom: 15px;
+	width: 1140px;
 }
 
 .search__input {
-	width: 1025px;
+	width: 100%;
 	border: none;
 	outline: none;
 	text-align: center;
@@ -38,16 +38,73 @@
 	border: none;
 	background-color: inherit;
 	cursor: pointer;
+	width: 80px;
+	height: 34px;
+	border-radius: 48px;
+	background-color: #2BE080;
 }
 
 .search__submit-button:hover {
 	opacity: 0.8;
 }
 
-.search__icon_submit-button {
-	width: 80px;
-	height: 34px;
-	border: none;
-	border-radius: 48px;
-	background-color: #2BE080;
+/* стили меньше 1140px */ 
+
+@media screen and (max-width: 1140px) {
+	.search {
+    padding-bottom: 61px;
+    margin: 144px 70px 0;
+	}
+}
+
+/* стили меньше 1024px */
+
+@media screen and (max-width: 1023px) {
+	.search__container {
+		display: flex;
+		border-bottom: 1px solid #E8E8E8;
+		margin-bottom: 30px;
+	}
+
+	.search__input {
+		border: none;
+		outline: none;
+		text-align: center;
+		font-size: 28px;
+		font-weight: 500;
+		line-height: 31px;
+	}
+}
+
+/* стили меньше 480px */
+
+@media screen and (max-width: 480px) {
+  .search {
+    max-width: 292px;
+    padding-bottom: 50px;
+    margin: auto;
+    margin-top: 98px;
+	}
+
+	.search__container {
+		margin-bottom: 43px;
+	}
+
+	.search__icon {
+		background-image: none;
+		border: none;
+		width: 0;
+		height: 0;
+	}
+
+	.search__form {
+		margin-bottom: 9px;
+	}
+
+	.search__input {
+		width: 210px;
+		text-align: start;
+		font-size: 18px;
+		line-height: 21px;
+	}
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 
 import './Header.css'
@@ -10,17 +10,50 @@ import Navigation from '../Navigation/Navigation';
 
 function Header(props) {
 
-  const { isLoggedIn } = props;
+  const { isLoggedIn = false } = props;
+
+  const [isMenuOpened, setIsMenuOpened] = useState(false);
+
+  function onClickBurgerMenu() {
+    setIsMenuOpened((prevState) => !prevState);
+  }
 
   return (
-    <header className={`header ${!isLoggedIn ? 'header__auth-hidden' : '' }`}>
-      <div className="header__container">
+    <header className='header'>
+      <div className='header__container-hidden'>
+        {isMenuOpened && ( 
+        <div className="header__description-hidden"> 
+          <nav className="burger__menu_links">
+            <Link className="burger__menu_link" to="/">Главная</Link>
+              { isLoggedIn && <Navigation /> }
+          </nav>
+        </div> 
+        )}
+      </div>
+
+      <div className='header__container'>
         <Link className='header__link' to='/'>
           <img className="header__logo" src={logo} alt="логотип сайта"/> 
         </Link>
-        { !isLoggedIn && <NavigationAuth /> }
-        { isLoggedIn && <Navigation /> }
+        <div className="header__link_visible"> 
+          { !isLoggedIn && <NavigationAuth /> }
+        </div> 
+        <div className="header__link_invise"> 
+          { isLoggedIn && <Navigation /> }
+        </div> 
       </div>
+
+      { isLoggedIn && (
+        <div className='header__burger'>
+          <button 
+          className={` ${
+            isMenuOpened ? "header__burger-close" : "header__burger-open"
+          }`}
+          onClick={onClickBurgerMenu} >
+          </button>
+        </div>
+      )}
+
     </header>
   );
 }

@@ -35,3 +35,38 @@
 .portfolio__image {
 	object-fit: contain;
 }
+
+/* стили меньше 1024px */
+
+@media screen and (max-width: 1023px) {
+  .portfolio {
+    margin: 0 50px 90px;
+	}
+
+	.portfolio__text {
+		font-size: 28px;
+	}
+}
+
+/* стили меньше 480px */
+
+@media screen and (max-width: 480px) {
+  .portfolio {
+    max-width: 292px;
+    margin: 0 auto 70px;
+	}
+
+	.portfolio__title {
+    font-size: 14px;
+    margin-bottom: 40px;
+	}
+
+	.portfolio__text {
+    font-size: 18px;
+    line-height: 28px;
+	}
+
+	.portfolio__image {
+    margin-bottom: 19px;
+}
+}

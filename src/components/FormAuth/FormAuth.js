@@ -1,4 +1,3 @@
-// Общий компонент для форм регистрации и авторизации пользователя
 import React from 'react';
 import { Link } from 'react-router-dom';
 

@@ -11,7 +11,7 @@ function SearchForm() {
   return (
     <section class="search">
       <div className='search__container'>
-        <img class="search__icon" src={search} alt=""/>
+        {/* <div class="search__icon"></div> */}<img class="search__icon" src={search} alt=""/>
         <form class="search__form">
           <input class="search__input" 
             id='input-search' 

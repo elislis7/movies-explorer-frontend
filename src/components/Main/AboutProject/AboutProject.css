@@ -1,6 +1,5 @@
 .project {
 	max-width: 1140px;
-	max-height: 608px;
 	margin: 0 auto;
 	margin-top: 110px;
 	margin-bottom: 110px;
@@ -52,7 +51,7 @@
 .project__line-title {
   height: 36px;
   font-size: 14px;
-font-weight: 400;
+	font-weight: 400;
   line-height: 17px;
   display: flex;
   justify-content: center;
@@ -70,4 +69,85 @@ font-weight: 400;
 
 .green-color {
   background-color: #2BE080;
+}
+
+/* стили меньше 1024px */
+
+@media screen and (max-width: 1023px) {
+  .project {
+		margin: 90px 50px 90px;
+	}
+
+	.project__info {
+    margin-bottom: 93px;
+	}
+
+	.project__description {
+		max-width: 319px;
+	}
+
+	.project__description:not(:last-child) {
+		margin-right: 30px;
+	}
+
+	.project__subtitle {
+		margin-bottom: 22px;
+	}
+
+	.project__text {
+    font-size: 12px;
+    line-height: 18px;
+	}
+}
+
+/* стили меньше 480px */
+
+@media screen and (max-width: 480px) {
+	.project {
+		max-width: 284px;
+		margin: 70px auto 70px;
+	}
+
+	.project__title {
+		font-size: 18px;
+		line-height: 20px;
+		padding-bottom: 28px;
+		margin-bottom: 60px;
+	}
+
+	.project__info {
+		flex-direction: column;
+		margin-bottom: 60px;
+	}
+
+	.project__description:not(:last-child) {
+		margin: 0 auto 56px;
+	}
+
+	.project__subtitle {
+		font-size: 18px;
+		line-height: 20px;
+		margin-bottom: 16px;
+	}
+	
+	.project__text {
+		font-size: 11px;
+		line-height: 16px;
+	}
+
+	.project__line {
+		grid-template-columns: 2fr 4fr;
+		gap: 10px 0;
+	}
+
+	.project__line-title {
+		height: 35px;
+		font-size: 11px;
+		line-height: 13px;
+	}
+
+	.project__line-description {
+		font-size: 11px;
+		line-height: 13px;
+	}
 }

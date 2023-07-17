@@ -20,3 +20,11 @@
 .movies__button:hover {
   opacity: 0.8;
 }
+
+/* стили меньше 480px */
+
+@media screen and (max-width: 480px) {
+  .movies__button {
+    width: 240px;
+  }
+}

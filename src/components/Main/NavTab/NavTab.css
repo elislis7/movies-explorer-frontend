@@ -30,3 +30,36 @@
 .navigate__link:not(:last-child) {
 	margin-right: 10px;
 }
+
+/* стили меньше 1024px */
+
+@media screen and (max-width: 1023px) {
+  .navigate {
+    margin-top: 314px;
+  }
+
+.navigate__link {
+  font-size: 12px;
+  line-height: 16px;
+  }
+}
+
+/* стили меньше 480px */
+
+@media screen and (max-width: 480px) {
+  .navigate {
+    margin-top: 212px;
+  }
+
+  .navigate__link {
+    width: 82px;
+    height: 26px;
+    border-radius: 6px;
+    margin-bottom: 17px;
+    font-size: 10px;
+  }
+
+  .navigate__link:not(:last-child) {
+    margin-right: 6px;
+  }
+}

@@ -13,7 +13,7 @@ function Login() {
       linkText='Регистрация'
       link='/sign-up'
     >
-      <label className='form__field'>
+      <div className='form__field'>
         <span className='form___span'>E-mail</span>
         <input className='form__input'
           id="email"
@@ -22,9 +22,9 @@ function Login() {
           placeholder=""
           required  />
         <span class="form__error">Что-то пошло не так...</span>
-      </label>
+      </div>
 
-      <label className='form__field'>
+      <div className='form__field'>
         <span className='form___span'>Пароль</span>
         <input className='form__input' 
           id="password"
@@ -32,7 +32,7 @@ function Login() {
           type="password"
           required />
         <span class="form__error">Что-то пошло не так...</span> 
-      </label>
+      </div>
     </FormAuth>
   );
 }

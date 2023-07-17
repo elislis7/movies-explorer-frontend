@@ -2,6 +2,10 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 21px 70px 21px 0;
 }
 
 .navigation__auth_link {
@@ -33,6 +37,31 @@
 	background-color: #2BE080;
 }
 
-.navigation__auth_type_login:last-child {
-	margin-right: 70px;
+/* стили меньше 1024px */
+
+@media screen and (max-width: 1023px) {
+	.navigation__auth {
+    margin-right: 30px;
+	}
+}
+
+/* стили меньше 480px */
+
+@media screen and (max-width: 480px) {
+	.navigation__auth {
+		margin-right: 14px;
+	}
+
+	.navigation__auth_link {
+		font-size: 10px;
+	}
+
+	.navigation__auth_type_register {
+		margin-right: 14px;
+	}
+
+  .navigation__auth_type_login:last-child {
+		width: 54px;
+		height: 26px;
+	}
 }

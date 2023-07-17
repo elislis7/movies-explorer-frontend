@@ -2,6 +2,8 @@ import React from 'react';
 
 import './Profile.css'
 
+import { Link } from 'react-router-dom';
+
 function Profile(props) {
 
   const { buttonText } = props;
@@ -35,9 +37,9 @@ function Profile(props) {
         <button class="profile__button-text button-edit">
           { buttonText || 'Редактировать' }
         </button>
-        <button class="profile__button-text button-exit">
+        <Link class="profile__button-text button-exit" to='/sign-in'>
           { buttonText || 'Выйти из аккаунта' }
-        </button>
+        </Link>
       </div>
     </main>
   );

@@ -22,7 +22,7 @@ function App() {
       <Routes>
         <Route path="/" element={
           <>
-            <Header isLoggedIn={false} />
+            <Header />
             <Main />
             <Footer />
           </>
@@ -42,14 +42,14 @@ function App() {
 
         <Route path='/profile' element={
           <>
-            <Header isLoggedIn={true} />
+            <Header isLoggedIn={true} isMenuOpened={true} />
             <Profile />
           </>
         }/>
 
         <Route path='/movies' element={
           <>
-            <Header isLoggedIn={true} />
+            <Header isLoggedIn={true} isMenuOpened={true} />
             <Movies />
             <Footer />
           </>
@@ -57,7 +57,7 @@ function App() {
 
         <Route path='/saved-movies' element={
           <>
-            <Header isLoggedIn={true} />
+            <Header isLoggedIn={true} isMenuOpened={true} />
             <SavedMovies />
             <Footer />
           </>

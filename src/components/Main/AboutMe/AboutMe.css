@@ -1,8 +1,6 @@
 .student {
 	max-width: 1140px;
-	margin: 0 auto;
-	margin-top: 110px;
-  margin-bottom: 100px;
+	margin: 110px auto 100px;
 }
 
 .student__title {
@@ -64,4 +62,88 @@
 	height: 327px;
   object-fit: cover;
 	border-radius: 10px;  
+}
+
+/* стили меньше 1024px */
+
+@media screen and (max-width: 1023px) {
+  .student {
+    margin: 90px 50px 90px;
+}
+
+.student__info {
+	max-width: 364px;
+	margin-right: 49px;
+}
+
+.student__name {
+	font-size: 40px;
+	line-height: 40px;
+	margin-bottom: 16px;
+}
+
+.student__about {
+	font-size: 12px;
+	line-height: 18px;
+	margin-bottom: 20px;
+}
+
+.student__info-description {
+	font-size: 12px;
+	line-height: 18px;
+	margin-bottom: 87px;
+}
+
+.student__avatar {
+	width: 255px;
+	height: 307px;
+}
+}
+
+/* стили меньше 480px */
+
+@media screen and (max-width: 620px) {
+  .student {
+		width: 292px;
+    margin: 70px auto 70px;
+	}
+
+	.student__title {
+		font-size: 18px;
+    line-height: 21px;
+    padding-bottom: 28px;
+    margin-bottom: 60px;
+	}
+
+	.student__description {
+		flex-direction: column-reverse;
+	}
+	
+	.student__avatar {
+		width: 292px;
+		height: 352px;
+		margin-bottom: 40px;
+	}
+
+	.student__info {
+		margin: 0;
+	}
+	
+	.student__name {
+		font-size: 30px;
+    line-height: 35px;
+    margin-bottom: 20px;
+	}
+
+	.student__about {
+    font-size: 11px;
+    line-height: 16px;
+    margin-bottom: 20px;
+	}
+
+	.student__info-description {
+    font-size: 11px;
+    line-height: 16px;
+    margin-bottom: 40px;
+	}
 }

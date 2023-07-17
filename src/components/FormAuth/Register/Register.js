@@ -14,7 +14,7 @@ function Register() {
       linkText='Войти'
       link='/sign-in'
     >
-      <label className='form__field'>
+      <div className='form__field'>
         <span className='form___span'>Имя</span>
         <input className='form__input' 
           id="name" 
@@ -23,9 +23,9 @@ function Register() {
           placeholder="" 
           required />
         <span class="form__error">Что-то пошло не так...</span> 
-      </label>
+      </div>
 
-      <label className='form__field'>
+      <div className='form__field'>
         <span className='form___span'>E-mail</span>
         <input className='form__input'
           id="email"
@@ -34,7 +34,7 @@ function Register() {
           placeholder=""
           required  />
         <span class="form__error">Что-то пошло не так...</span>
-      </label>
+      </div>
 
       <label className='form__field'>
         <span className='form___span'>Пароль</span>

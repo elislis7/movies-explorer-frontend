@@ -25,21 +25,6 @@ function MoviesCard() {
             aria-label="Кнопка сохранения фильма">
               Сохранить
           </button>
-{/* 
-          <button 
-            class="movie__buttons element__save_active" 
-            type="button" 
-            name="button" 
-            aria-label="Кнопка сохранения фильма">
-          </button>
-
-          <button 
-            class="movie__buttons element__delete" 
-            type="button" 
-            name="button" 
-            aria-label="Кнопка сохранения фильма">
-          </button> */}
-          
         </div>
       </div>
 
