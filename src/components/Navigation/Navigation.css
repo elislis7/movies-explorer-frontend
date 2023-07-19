@@ -1,0 +1,151 @@
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+	top: 0;
+	right: 0;
+	margin: 21px 70px 21px 0;
+  width: 53%;
+}
+
+.navigation-link-movies {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  text-decoration: none;
+  color: #000000;
+}
+
+.navigation-link-movies:hover {
+  opacity: 0.8;
+}
+
+.navigation-link-movies:not(:last-child) {
+  padding-right: 16px;
+}
+
+.active {
+  text-decoration: none;
+  color: #000000;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+}
+
+.account {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 36px;
+  border: none;
+  border-radius: 40px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.08);
+  background-color: #FFFFFF;
+  cursor: pointer;
+}
+
+.account:hover {
+  opacity: 0.8;
+}
+
+.account__text {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 12px;
+  margin-left: 11px;
+  margin-right: 7px;
+}
+
+.account__link-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: #F9F9F9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1023px) {
+
+  .navigation {
+    width: 100%;
+    margin: 42px auto 0;
+    flex-direction: column;
+  }
+
+  .navigation-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 340px;
+  }
+
+  .active {
+    width: 72px;
+    font-size: 18px;
+    line-height: 22px;
+    padding-bottom: 7px;
+    border-bottom: 2px solid #000000;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .navigation-link-movies {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+  }
+
+  .active {
+    padding-bottom: 4px;
+    margin-bottom: 22px;
+  }
+  .account {
+    margin: 500px 0 86px ;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navigation {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navigation-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .active {
+    width: 72px;
+    font-size: 18px;
+    line-height: 22px;
+    padding-bottom: 7px;
+    border-bottom: 2px solid #000000;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .navigation-link-movies {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+  }
+
+  .navigation-link-movies:not(:last-child) {
+    padding-right: 0;
+  }
+
+  .navigation-link-movies:last-child {
+    margin-bottom: 444px;
+  }
+
+  .account {
+    box-shadow: 0px 3px 14px rgba(0, 0, 0, 0.08);
+    margin: 0 auto 42px;
+  }
+}
