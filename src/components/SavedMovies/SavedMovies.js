@@ -11,48 +11,48 @@ import './SavedMovies.css'
 function SavedMovies() {
 	return (
 
-		<main className='saved-movies'>
+		<main classNameName='saved-movies'>
 			<SearchForm />
-			<section class="movies">
-				<div  class="movie">
-					<div class="movie__description">
-						<h2 class="movie__title">В погоне за Бенкси</h2>
-						<p class="movie__duration">27 минут</p>
+			<section className="movies">
+				<div  className="movie">
+					<div className="movie__description">
+						<h2 className="movie__title">В погоне за Бенкси</h2>
+						<p className="movie__duration">27 минут</p>
 					</div>
-					<img class="movie__image" src={image1} alt="#"/>
-					<div class="movie__container_buttons">
+					<img className="movie__image" src={image1} alt="Постер к фильму"/>
+					<div className="movie__container_buttons">
 						<button 
-							class="movie__buttons element__delete" 
+							className="movie__buttons element__delete" 
 							type="button" 
 							name="button" 
 							aria-label="Кнопка сохранения фильма">
 						</button>
 					</div>
 				</div>
-				<div  class="movie">
-					<div class="movie__description">
-						<h2 class="movie__title">В погоне за Бенкси</h2>
-						<p class="movie__duration">27 минут</p>
+				<div  className="movie">
+					<div className="movie__description">
+						<h2 className="movie__title">В погоне за Бенкси</h2>
+						<p className="movie__duration">27 минут</p>
 					</div>
-					<img class="movie__image" src={image2} alt="#"/>
-					<div class="movie__container_buttons">
+					<img className="movie__image" src={image2} alt="Постер к фильму"/>
+					<div className="movie__container_buttons">
 						<button 
-							class="movie__buttons element__delete" 
+							className="movie__buttons element__delete" 
 							type="button" 
 							name="button" 
 							aria-label="Кнопка сохранения фильма">
 						</button>
 					</div>
 				</div>
-				<div  class="movie">
-					<div class="movie__description">
-						<h2 class="movie__title">В погоне за Бенкси</h2>
-						<p class="movie__duration">27 минут</p>
+				<div  className="movie">
+					<div className="movie__description">
+						<h2 className="movie__title">В погоне за Бенкси</h2>
+						<p className="movie__duration">27 минут</p>
 					</div>
-					<img class="movie__image" src={image3} alt="#"/>
-					<div class="movie__container_buttons">
+					<img className="movie__image" src={image3} alt="Постер к фильму"/>
+					<div className="movie__container_buttons">
 						<button 
-							class="movie__buttons element__delete" 
+							className="movie__buttons element__delete" 
 							type="button" 
 							name="button" 
 							aria-label="Кнопка сохранения фильма">

@@ -8,16 +8,16 @@ import account from '../../images/account.svg';
 
 function Navigation() {
   return (
-    <div className='header__navigation'>
-      <nav class="header__link_nav">
-        <Link class="header__link_movies active" to='/movies'>Фильмы</Link>
-        <Link class="header__link_movies" to='/saved-movies'>Сохранённые фильмы</Link>
+    <div className='navigation'>
+      <nav className="navigation-links">
+        <Link className="navigation-link-movies active" to='/movies'>Фильмы</Link>
+        <Link className="navigation-link-movies" to='/saved-movies'>Сохранённые фильмы</Link>
       </nav>
 
-      <button class="account">
-        <div class="account__text">Аккаунт</div>
+      <button className="account">
+        <div className="account__text">Аккаунт</div>
         <Link className='account__link-icon' to='/profile'>
-          <img class="account__icon" src={account} alt="иконка человечка" />
+          <img className="account__icon" src={account} alt="Иконка человечка" />
         </Link>
       </button>
     </div>

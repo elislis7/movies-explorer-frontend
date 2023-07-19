@@ -39,7 +39,7 @@
 	margin-bottom: 18px;
 }
 
-.movie__container_buttons {
+.movie__container-buttons {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -61,11 +61,11 @@
 	opacity: 0.8;
 }
 
-.element__save {
+.save {
 	background-color: #F9F9F9;
 }
 
-.element__save_active {
+.save_active {
 	background-color: #EE3465;
 	background-image: url('../../../images/checkInvisible.svg');
 	background-position: center;
@@ -125,7 +125,7 @@
 		margin-bottom: 14px;
 	}
 
-	.movie__container_buttons {
+	.movie__container-buttons {
 		margin-bottom: 14px;
 	}
 }

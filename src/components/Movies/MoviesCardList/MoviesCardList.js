@@ -17,17 +17,17 @@ import './MoviesCardList.css'
 
 function MoviesCardList() {
 	return (
-		<section class="movies">
+		<section className="movies">
 
-			<div  class="movie">
-				<div class="movie__description">
-					<h2 class="movie__title">В погоне за Бенкси</h2>
-					<p class="movie__duration">27 минут</p>
+			<div  className="movie">
+				<div className="movie__description">
+					<h2 className="movie__title">В погоне за Бенкси</h2>
+					<p className="movie__duration">27 минут</p>
 				</div>
-				<img class="movie__image" src={image1} alt="#"/>
-				<div class="movie__container_buttons">
+				<img className="movie__image" src={image1} alt="Постер к фильму"/>
+				<div className="movie__container-buttons">
 					<button 
-						class="movie__buttons element__save_active" 
+						className="save save_active" 
 						type="button" 
 						name="button" 
 						aria-label="Кнопка сохранения фильма">
@@ -35,15 +35,15 @@ function MoviesCardList() {
 				</div>
 			</div>
 
-			<div  class="movie">
-				<div class="movie__description">
-					<h2 class="movie__title">В погоне за Бенкси</h2>
-					<p class="movie__duration">27 минут</p>
+			<div  className="movie">
+				<div className="movie__description">
+					<h2 className="movie__title">В погоне за Бенкси</h2>
+					<p className="movie__duration">27 минут</p>
 				</div>
-				<img class="movie__image" src={image2} alt="#"/>
-				<div class="movie__container_buttons">
+				<img className="movie__image" src={image2} alt="Постер к фильму"/>
+				<div className="movie__container-buttons">
 					<button 
-						class="movie__buttons element__save_active" 
+						className="save save_active" 
 						type="button" 
 						name="button" 
 						aria-label="Кнопка сохранения фильма">
@@ -51,15 +51,15 @@ function MoviesCardList() {
 				</div>
 			</div>
 
-			<div  class="movie">
-				<div class="movie__description">
-					<h2 class="movie__title">В погоне за Бенкси</h2>
-					<p class="movie__duration">27 минут</p>
+			<div  className="movie">
+				<div className="movie__description">
+					<h2 className="movie__title">В погоне за Бенкси</h2>
+					<p className="movie__duration">27 минут</p>
 				</div>
-				<img class="movie__image" src={image3} alt="#"/>
-				<div class="movie__container_buttons">
+				<img className="movie__image" src={image3} alt="Постер к фильму"/>
+				<div className="movie__container-buttons">
 				<button 
-						class="movie__buttons element__save" 
+						className="save" 
 						type="button" 
 						name="button" 
 						aria-label="Кнопка сохранения фильма">
@@ -68,15 +68,15 @@ function MoviesCardList() {
 				</div>
 			</div>
 
-			<div  class="movie">
-				<div class="movie__description">
-					<h2 class="movie__title">В погоне за Бенкси</h2>
-					<p class="movie__duration">27 минут</p>
+			<div  className="movie">
+				<div className="movie__description">
+					<h2 className="movie__title">В погоне за Бенкси</h2>
+					<p className="movie__duration">27 минут</p>
 				</div>
-				<img class="movie__image" src={image4} alt="#"/>
-				<div class="movie__container_buttons">
+				<img className="movie__image" src={image4} alt="Постер к фильму"/>
+				<div className="movie__container-buttons">
 					<button 
-						class="movie__buttons element__save" 
+						className="save" 
 						type="button" 
 						name="button" 
 						aria-label="Кнопка сохранения фильма">
@@ -85,15 +85,15 @@ function MoviesCardList() {
 				</div>
 			</div>
 
-			<div  class="movie">
-				<div class="movie__description">
-					<h2 class="movie__title">В погоне за Бенкси</h2>
-					<p class="movie__duration">27 минут</p>
+			<div  className="movie">
+				<div className="movie__description">
+					<h2 className="movie__title">В погоне за Бенкси</h2>
+					<p className="movie__duration">27 минут</p>
 				</div>
-				<img class="movie__image" src={image5} alt="#"/>
-				<div class="movie__container_buttons">
+				<img className="movie__image" src={image5} alt="Постер к фильму"/>
+				<div className="movie__container-buttons">
 					<button 
-						class="movie__buttons element__save" 
+						className="save" 
 						type="button" 
 						name="button" 
 						aria-label="Кнопка сохранения фильма">
@@ -102,15 +102,15 @@ function MoviesCardList() {
 				</div>
 			</div>
 
-			<div  class="movie">
-				<div class="movie__description">
-					<h2 class="movie__title">В погоне за Бенкси</h2>
-					<p class="movie__duration">27 минут</p>
+			<div  className="movie">
+				<div className="movie__description">
+					<h2 className="movie__title">В погоне за Бенкси</h2>
+					<p className="movie__duration">27 минут</p>
 				</div>
-				<img class="movie__image" src={image6} alt="#"/>
-				<div class="movie__container_buttons">
+				<img className="movie__image" src={image6} alt="Постер к фильму"/>
+				<div className="movie__container-buttons">
 					<button 
-						class="movie__buttons element__save_active" 
+						className="save save_active" 
 						type="button" 
 						name="button" 
 						aria-label="Кнопка сохранения фильма">
@@ -118,15 +118,15 @@ function MoviesCardList() {
 				</div>
 			</div>
 			
-			<div  class="movie">
-				<div class="movie__description">
-					<h2 class="movie__title">В погоне за Бенкси</h2>
-					<p class="movie__duration">27 минут</p>
+			<div  className="movie">
+				<div className="movie__description">
+					<h2 className="movie__title">В погоне за Бенкси</h2>
+					<p className="movie__duration">27 минут</p>
 				</div>
-				<img class="movie__image" src={image7} alt="#"/>
-				<div class="movie__container_buttons">
+				<img className="movie__image" src={image7} alt="Постер к фильму"/>
+				<div className="movie__container-buttons">
 					<button 
-						class="movie__buttons element__save_active" 
+						className="save save_active" 
 						type="button" 
 						name="button" 
 						aria-label="Кнопка сохранения фильма">
@@ -134,32 +134,15 @@ function MoviesCardList() {
 				</div>
 			</div>
 
-			<div  class="movie">
-				<div class="movie__description">
-					<h2 class="movie__title">В погоне за Бенкси</h2>
-					<p class="movie__duration">27 минут</p>
+			<div  className="movie">
+				<div className="movie__description">
+					<h2 className="movie__title">В погоне за Бенкси</h2>
+					<p className="movie__duration">27 минут</p>
 				</div>
-				<img class="movie__image" src={image8} alt="#"/>
-				<div class="movie__container_buttons">
+				<img className="movie__image" src={image8} alt="Постер к фильму"/>
+				<div className="movie__container-buttons">
 					<button 
-						class="movie__buttons element__save" 
-						type="button" 
-						name="button" 
-						aria-label="Кнопка сохранения фильма">
-							Сохранить
-					</button>
-				</div>
-			</div>
-
-			<div  class="movie">
-				<div class="movie__description">
-					<h2 class="movie__title">В погоне за Бенкси</h2>
-					<p class="movie__duration">27 минут</p>
-				</div>
-				<img class="movie__image" src={image9} alt="#"/>
-				<div class="movie__container_buttons">
-					<button 
-						class="movie__buttons element__save" 
+						className="save" 
 						type="button" 
 						name="button" 
 						aria-label="Кнопка сохранения фильма">
@@ -168,15 +151,15 @@ function MoviesCardList() {
 				</div>
 			</div>
 
-			<div  class="movie">
-				<div class="movie__description">
-					<h2 class="movie__title">В погоне за Бенкси</h2>
-					<p class="movie__duration">27 минут</p>
+			<div  className="movie">
+				<div className="movie__description">
+					<h2 className="movie__title">В погоне за Бенкси</h2>
+					<p className="movie__duration">27 минут</p>
 				</div>
-				<img class="movie__image" src={image10} alt="#"/>
-				<div class="movie__container_buttons">
+				<img className="movie__image" src={image9} alt="Постер к фильму"/>
+				<div className="movie__container-buttons">
 					<button 
-						class="movie__buttons element__save" 
+						className="save" 
 						type="button" 
 						name="button" 
 						aria-label="Кнопка сохранения фильма">
@@ -185,15 +168,32 @@ function MoviesCardList() {
 				</div>
 			</div>
 
-			<div  class="movie">
-				<div class="movie__description">
-					<h2 class="movie__title">В погоне за Бенкси</h2>
-					<p class="movie__duration">27 минут</p>
+			<div  className="movie">
+				<div className="movie__description">
+					<h2 className="movie__title">В погоне за Бенкси</h2>
+					<p className="movie__duration">27 минут</p>
 				</div>
-				<img class="movie__image" src={image11} alt="#"/>
-				<div class="movie__container_buttons">
+				<img className="movie__image" src={image10} alt="Постер к фильму"/>
+				<div className="movie__container-buttons">
 					<button 
-						class="movie__buttons element__save_active" 
+						className="save" 
+						type="button" 
+						name="button" 
+						aria-label="Кнопка сохранения фильма">
+							Сохранить
+					</button>
+				</div>
+			</div>
+
+			<div  className="movie">
+				<div className="movie__description">
+					<h2 className="movie__title">В погоне за Бенкси</h2>
+					<p className="movie__duration">27 минут</p>
+				</div>
+				<img className="movie__image" src={image11} alt="Постер к фильму"/>
+				<div className="movie__container-buttons">
+					<button 
+						className="save save_active" 
 						type="button" 
 						name="button" 
 						aria-label="Кнопка сохранения фильма">
@@ -201,15 +201,15 @@ function MoviesCardList() {
 				</div>
 			</div>
 
-			<div  class="movie">
-				<div class="movie__description">
-					<h2 class="movie__title">В погоне за Бенкси</h2>
-					<p class="movie__duration">27 минут</p>
+			<div  className="movie">
+				<div className="movie__description">
+					<h2 className="movie__title">В погоне за Бенкси</h2>
+					<p className="movie__duration">27 минут</p>
 				</div>
-				<img class="movie__image" src={image12} alt="#"/>
-				<div class="movie__container_buttons">
+				<img className="movie__image" src={image12} alt="Постер к фильму"/>
+				<div className="movie__container-buttons">
 					<button 
-						class="movie__buttons element__save" 
+						className="save" 
 						type="button" 
 						name="button" 
 						aria-label="Кнопка сохранения фильма">

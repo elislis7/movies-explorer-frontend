@@ -6,15 +6,15 @@ import './NotFoundPages.css'
 
 function NotFoundPages() {
 	return (
-		<section className="page__error">
-			<h1 class="page__error_title">404</h1>
-			<p class="page__error_subtitle">Страница не найдена</p>
+		<section className="page-error">
+			<h1 className="page-error__title">404</h1>
+			<p className="page-error__subtitle">Страница не найдена</p>
 			<Link 
-				class="page__error_button-back" 
+				className="page-error__button" 
 				to="/">
 					Назад
 			</Link>
-	</section>
+		</section>
 	);
 }
 

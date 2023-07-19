@@ -52,7 +52,7 @@
   font-weight: 500;
   font-size: 13px;
   line-height: 15px;
-  outline:none;
+  outline: none;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -60,7 +60,11 @@
   padding: 15px;
 }
 
-.form__error {
+.form__input:focus {
+  border: 1px solid #2BE080;
+}
+
+.error {
   display: none;
   font-size: 10px;
   font-weight: 400;
@@ -69,7 +73,7 @@
   margin-top: 10px;
 }
 
-.form__error_active {
+.error__active {
   visibility: visible;
 }
 

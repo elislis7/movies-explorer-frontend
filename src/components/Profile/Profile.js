@@ -21,7 +21,7 @@ function Profile(props) {
             minLength={2}
             maxLength={30}
             required />
-          <span class="profile__error"></span> 
+          <span className="profile__error"></span> 
         </label>
         <label className='profile__field'>
           <span className='profile__span'>E-mail</span>
@@ -30,14 +30,14 @@ function Profile(props) {
             name="email" 
             type="email" 
             required />
-          <span class="profile__error"></span>
+          <span className="profile__error"></span>
         </label>
       </form>
       <div className="profile__buttons">
-        <button class="profile__button-text button-edit">
+        <button className="profile__button-text button-edit">
           { buttonText || 'Редактировать' }
         </button>
-        <Link class="profile__button-text button-exit" to='/sign-in'>
+        <Link className="profile__button-text button-exit" to='/sign-in'>
           { buttonText || 'Выйти из аккаунта' }
         </Link>
       </div>

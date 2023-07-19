@@ -9,19 +9,19 @@ import './SearchForm.css'
 
 function SearchForm() {
   return (
-    <section class="search">
+    <section className="search">
       <div className='search__container'>
-        {/* <div class="search__icon"></div> */}<img class="search__icon" src={search} alt=""/>
-        <form class="search__form">
-          <input class="search__input" 
+        <img className="search__icon" src={search} alt="Картинка -поиск-"/>
+        <form className="search__form">
+          <input className="search__input" 
             id='input-search' 
             type="text" 
             name="search" 
             placeholder="Фильм" 
             required/>
-          <span class="search-error input-search-error"></span> 
-          <button class="search__submit-button" type="submit" name="button">
-            <img  class="search__icon_submit-button" src={search_invisible} alt=""/>
+          <span className="search-error input-search-error"></span> 
+          <button className="search__submit-button" type="submit" name="button">
+            <img  className="search__submit-button-icon" src={search_invisible} alt="Кнопка поиск"/>
           </button>
         </form>
       </div>

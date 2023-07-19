@@ -12,12 +12,14 @@ function FormAuth(props) {
   return (
     <div className='form'>
       <Link className='form__logo' to='/'>
-        <img src={logo} alt='логотип' />
+        <img src={logo} alt='Логотип сайта' />
       </Link>
       <h2 className='form__title'>{title}</h2>
       <form className='form__container'>
         {children}
-        <button className='form__button' type='submit'>
+        <button 
+          className='form__button' 
+          type='submit'>
           {buttonText}
         </button>
       </form>

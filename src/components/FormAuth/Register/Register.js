@@ -16,13 +16,13 @@ function Register() {
     >
       <div className='form__field'>
         <span className='form___span'>Имя</span>
-        <input className='form__input' 
-          id="name" 
-          name="name" 
-          type="text" 
-          placeholder="" 
+        <input className='form__input'
+          id="name"
+          name="name"
+          type="text"
+          placeholder=""
           required />
-        <span class="form__error">Что-то пошло не так...</span> 
+        <span className="error">Что-то пошло не так...</span> 
       </div>
 
       <div className='form__field'>
@@ -32,18 +32,18 @@ function Register() {
           name="email"
           type="email"
           placeholder=""
-          required  />
-        <span class="form__error">Что-то пошло не так...</span>
+          required />
+        <span className="error">Что-то пошло не так...</span>
       </div>
 
       <label className='form__field'>
         <span className='form___span'>Пароль</span>
-        <input className='form__input' 
+        <input className='form__input'
           id="password"
           name="password"
           type="password"
           required />
-        <span class="form__error">Что-то пошло не так...</span> 
+        <span className="error">Что-то пошло не так...</span> 
       </label>
     </FormAuth>
   );

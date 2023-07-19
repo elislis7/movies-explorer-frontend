@@ -6,20 +6,20 @@ import './MoviesCard.css'
 
 function MoviesCard() {
   return (
-    <section class="movies">
+    <section className="movies">
 
-      <div  class="movie">
+      <div  className="movie">
 
-        <div class="movie__description">
-          <h2 class="movie__title">В погоне за Бенкси</h2>
-          <p class="movie__duration">27 минут</p>
+        <div className="movie__description">
+          <h2 className="movie__title">В погоне за Бенкси</h2>
+          <p className="movie__duration">27 минут</p>
         </div>
 
-        <img class="movie__image" src={movie} alt="#"/>
+        <img className="movie__image" src={movie} alt="Постер к фильму"/>
 
-        <div class="movie__container_buttons">
+        <div className="movie__container-buttons">
           <button 
-            class="movie__buttons element__save" 
+            className="save" 
             type="button" 
             name="button" 
             aria-label="Кнопка сохранения фильма">

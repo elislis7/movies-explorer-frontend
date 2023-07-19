@@ -74,35 +74,44 @@
 @media screen and (max-width: 1023px) {
   .techs__container {
     margin: 0 50px;
+	}
+
+	.techs__title {
+		padding-top: 90px;
+	}
+
+	.techs__description {
+		margin-top: 80px;
+		margin-bottom: 83px;
+	}
+
+	.techs__description_subtitle {
+		padding-bottom: 22px;
+	}
+
+	.techs__description_text {
+		font-size: 12px;
+		line-height: 18px;
+	}
+
+	.techs__list {
+		padding-bottom: 90px;
+	}
+
+	.techs__sublist {
+		width: 84px;
+		height: 57px;
+		font-size: 12px;
+	}
 }
 
-.techs__title {
-	padding-top: 90px;
-}
-
-.techs__description {
-	margin-top: 80px;
-	margin-bottom: 83px;
-}
-
-.techs__description_subtitle {
-	padding-bottom: 22px;
-}
-
-.techs__description_text {
-	font-size: 12px;
-	line-height: 18px;
-}
-
-.techs__list {
-	padding-bottom: 90px;
-}
-
-.techs__sublist {
-	width: 84px;
-	height: 57px;
-	font-size: 12px;
-}
+@media screen and (max-width: 748px) {
+	.techs__list {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, 90px);
+    gap: 10px;
+    padding-bottom: 70px;
+	}
 }
 
 /* стили меньше 480px */
@@ -142,13 +151,6 @@
 	.techs__sublist {
 		font-size: 12px;
 		line-height: 14px;
-	}
-
-	.techs__list {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, 90px);
-    gap: 10px;
-    padding-bottom: 70px;
 	}
 
 	.techs__sublist:not(:last-child) {

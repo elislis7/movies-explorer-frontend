@@ -21,7 +21,7 @@ function Login() {
           type="email"
           placeholder=""
           required  />
-        <span class="form__error">Что-то пошло не так...</span>
+        <span className="error">Что-то пошло не так...</span> {/* form__error */}
       </div>
 
       <div className='form__field'>
@@ -31,7 +31,7 @@ function Login() {
           name="password"
           type="password"
           required />
-        <span class="form__error">Что-то пошло не так...</span> 
+        <span className="error">Что-то пошло не так...</span> {/* form__error */}
       </div>
     </FormAuth>
   );

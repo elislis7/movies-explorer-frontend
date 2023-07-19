@@ -33,7 +33,7 @@ function Header(props) {
 
       <div className='header__container'>
         <Link className='header__link' to='/'>
-          <img className="header__logo" src={logo} alt="логотип сайта"/> 
+          <img className="header__logo" src={logo} alt="Логотип сайта"/> 
         </Link>
         <div className="header__link_visible"> 
           { !isLoggedIn && <NavigationAuth /> }
