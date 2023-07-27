@@ -9,7 +9,7 @@ import Preloader from "../../Movies/Preloader/Preloader";
 import { useFormValidation } from "../../../hook/formValidation";
 import { apiMain } from "../../../utils/Api/MainApi";
 import { useCurrentUserContext } from '../../../contexts/CurrentUserContext';
-import { PATTERN_EMAIL } from '../../../utils/constants';
+/* import { PATTERN_EMAIL } from '../../../utils/constants'; */
 
 function Register(props) { 
 
@@ -89,7 +89,7 @@ function Register(props) {
               onChange={handleChange}
               placeholder="pochta@yandex.ru"
               value={values.email || ''}
-              pattern={PATTERN_EMAIL}
+              /* pattern={PATTERN_EMAIL} */
               required
             />
             <span className="error">{errors.email}</span>
