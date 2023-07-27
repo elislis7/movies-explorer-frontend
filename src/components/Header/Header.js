@@ -10,7 +10,7 @@ import Navigation from '../Navigation/Navigation';
 
 function Header(props) {
 
-  const { isLoggedIn = false } = props;
+  const { isLoggedIn } = props;
 
   const [isMenuOpened, setIsMenuOpened] = useState(false);
 

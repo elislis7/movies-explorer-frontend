@@ -6,9 +6,9 @@ import './NavTab.css';
 function NavTab() {
   return (
     <nav className="navigate">
-      <Link className="navigate__link" to={'project'}>О проекте</Link>
-      <Link className="navigate__link" to={'techs'}>Технологии</Link>
-      <Link className="navigate__link" to={'about'}>Студент</Link>
+      <Link className="navigate__link" to={'project'} smooth={true} duration={1000}>О проекте</Link>
+      <Link className="navigate__link" to={'techs'} smooth={true} duration={1000}>Технологии</Link>
+      <Link className="navigate__link" to={'student'} smooth={true} duration={1000}>Студент</Link>
     </nav>
   );
 }
