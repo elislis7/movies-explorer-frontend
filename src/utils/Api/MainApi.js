@@ -41,41 +41,41 @@ class MainApi {
 
   // получение инфо о пользователе
   getUser() {
-    return this._request('/users/me', 'GET')
+    return this._request('users/me', 'GET')
   }
 
   // редактирование инфо о пользователе
   updateUser(userData) {
-    return this._request('/users/me', 'PATCH', userData)
+    return this._request('users/me', 'PATCH', userData)
   }
 
   //получение списка сохраненых фильмов
   getSavedMovies() {
-    return this._request('/movies', 'GET')
+    return this._request('movies', 'GET')
   }
 
   //добавление фильма в сохраненки
   addMovie(movieData) {
-    return this._request('/movies', 'POST', movieData)
+    return this._request('movies', 'POST', movieData)
   }
 
   //удаление фильма из сохраненок
   deleteMovie(movieId) {
-    return this._request(`/movies/${movieId}`, 'DELETE')
+    return this._request(`movies/${movieId}`, 'DELETE')
   }
 
   // логирование пользователя
   login(authData) {
-    return this._request('/signin', 'POST', authData)
+    return this._request('signin', 'POST', authData)
   }
 
   // регистрация пользователя
   register(authData) {
-    return this._request('/signup', 'POST', authData)
+    return this._request('signup', 'POST', authData)
   }
 
   logOut() {
-    return this._request('/signout', 'GET')
+    return this._request('signout', 'GET')
   }
 }
 
