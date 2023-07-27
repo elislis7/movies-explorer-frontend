@@ -1,93 +1,5 @@
 class MainApi {
   constructor(config) {
-    this._baseURL = config.baseURL;
-    this._headers = config.headers
-  }
-
-  _checkServerResponse(res) {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Ошибка в запросе: ${res.status}`)
-  }
-
-  register(userData) {
-    return fetch(`${this._baseURL}/signup`, {
-      method: 'POST',
-      headers: this._headers,
-      body: JSON.stringify(userData),
-    })
-    .then(res => this._checkServerResponse(res))
-  }
-
-  login(userData) {
-    return fetch(`${this._baseURL}/signin`, {
-      method: 'POST',
-      headers: this._headers,
-      credentials: 'include',
-      body: JSON.stringify(userData),
-    })
-    .then(res => this._checkServerResponse(res))
-  }
-
-  logOut() {
-    return fetch(`${this._baseURL}/signout`, {
-      method: 'GET',
-      credentials: 'include',
-    })
-    .then(res => this._checkServerResponse(res));
-  }
-
-  getUser() {
-    return fetch(`${this._baseURL}/users/me`, {
-      method: 'GET',
-      headers: this._headers,
-      credentials: 'include',
-    })
-    .then(res => this._checkServerResponse(res));
-  }
-
-  updateUser(userData) {
-    return fetch(`${this._baseURL}/users/me`, {
-      method: 'PATCH',
-      headers: this._headers,
-      credentials: 'include',
-      body: JSON.stringify(userData)
-    })
-    .then(res => this._checkServerResponse(res));
-  }
-
-  addMovie(movieData) {
-    return fetch(`${this._baseURL}/movies`, {
-      method: 'POST',
-      headers: this._headers,
-      credentials: 'include',
-      body: JSON.stringify(movieData),
-    })
-    .then(res => this._checkServerResponse(res));
-  }
-
-  getSavedMovies() {
-    return fetch(`${this._baseURL}/movies`, {
-      method: 'GET',
-      headers: this._headers,
-      credentials: 'include',
-    })
-    .then(res => this._checkServerResponse(res));
-  }
-
-  deleteMovie(movieId) {
-    return fetch(`${this._baseURL}/movies/${movieId}`, {
-      method: 'DELETE',
-      headers: this._headers,
-      credentials: 'include',
-    })
-    .then(res => this._checkServerResponse(res));
-  }
-} 
-
-/* class MainApi {
-  constructor(config) {
     this._url = config.url;
     console.log(this._url)
   }
@@ -165,10 +77,10 @@ class MainApi {
   logOut() {
     return this._request('/signout', 'GET')
   }
-} */
+}
 
 export const apiMain = new MainApi ({
-  baseURL: "https://lis.movies-explorer.nomoreparties.sbs",
+  url: "https://api.lis.movies-explorer.nomoreparties.sbs",
   headers: {
     "Content-Type": "application/json",
   }
