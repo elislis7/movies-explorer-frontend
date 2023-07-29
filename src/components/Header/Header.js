@@ -35,10 +35,10 @@ function Header(props) {
         <Link className='header__link' to='/'>
           <img className="header__logo" src={logo} alt="Логотип сайта"/> 
         </Link>
-        <div className="header__link_visible"> 
+        <div className="header__link-visible"> 
           { !isLoggedIn && <NavigationAuth /> }
         </div> 
-        <div className="header__link_invise"> 
+        <div className="header__link-invise"> 
           { isLoggedIn && <Navigation /> }
         </div> 
       </div>

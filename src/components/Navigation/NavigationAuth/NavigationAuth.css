@@ -1,4 +1,4 @@
-.navigation__auth {
+.navigation-auth {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -8,7 +8,7 @@
 	margin: 21px 70px 21px 0;
 }
 
-.navigation__auth_link {
+.navigation-auth__link {
   color: #000;
   text-decoration: none;
   border: none;
@@ -18,16 +18,16 @@
 	line-height: 16px;
 }
 
-.navigation__auth_link:hover {
+.navigation-auth__link:hover {
   opacity: 0.8;
 }
 
-.navigation__auth_type_register {
+.navigation-auth-type-register {
 	background-color: inherit;
 	margin-right: 30px;
 }
 
-.navigation__auth_type_login {
+.navigation-auth-type-login {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,7 +40,7 @@
 /* стили меньше 1024px */
 
 @media screen and (max-width: 1023px) {
-	.navigation__auth {
+	.navigation-auth {
     margin-right: 30px;
 	}
 }
@@ -48,19 +48,19 @@
 /* стили меньше 480px */
 
 @media screen and (max-width: 480px) {
-	.navigation__auth {
+	.navigation-auth {
 		margin-right: 14px;
 	}
 
-	.navigation__auth_link {
+	.navigation-auth__link {
 		font-size: 10px;
 	}
 
-	.navigation__auth_type_register {
+	.navigation-auth-type-register {
 		margin-right: 14px;
 	}
 
-  .navigation__auth_type_login:last-child {
+  .navigation-auth-type-login:last-child {
 		width: 54px;
 		height: 26px;
 	}

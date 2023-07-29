@@ -52,7 +52,7 @@ function Login(props) {
       <h2 className='form__title'>{title}</h2>
       <form className='form__container' onSubmit={handleSubmit} noValidate>
         <div className='form__field'>
-          <span className='form___span'>E-mail</span>
+          <span className='form__field-span'>E-mail</span>
           <input 
             className={
               inputValidities.email === undefined || inputValidities.email
@@ -71,7 +71,7 @@ function Login(props) {
         </div>
 
         <div className='form__field'>
-          <span className='form___span'>Пароль</span>
+          <span className='form__field-span'>Пароль</span>
           <input 
             className={
               inputValidities.password === undefined || inputValidities.password
@@ -91,7 +91,7 @@ function Login(props) {
             isLoading
               ? <Preloader />
               : <button 
-                className={isValid ? 'form__button' : 'form__button form__button_disabled'} 
+                className={isValid ? 'form__button-login' : 'form__button-login form__button-login_disabled'} 
                 type='submit' 
                 disabled={!isValid}
               >

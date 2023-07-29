@@ -55,7 +55,7 @@ function Register(props) {
       <h2 className='form__title'>{title}</h2>
         <form className="form__container" onSubmit={handleSubmit} noValidate>
           <div className="form__field">
-            <span className="form___span">Имя</span>
+            <span className="form__field-span">Имя</span>
             <input
               className={
                 inputValidities.name === undefined || inputValidities.name
@@ -76,7 +76,7 @@ function Register(props) {
           </div>
 
           <div className="form__field">
-            <span className="form___span">E-mail</span>
+            <span className="form__field-span">E-mail</span>
             <input
               className={
                 inputValidities.email === undefined || inputValidities.email
@@ -96,7 +96,7 @@ function Register(props) {
           </div>
 
           <div className="form__field">
-            <span className="form___span">Пароль</span>
+            <span className="form__field-span">Пароль</span>
             <input
               className={
                 inputValidities.password === undefined || inputValidities.password
@@ -117,7 +117,7 @@ function Register(props) {
             isLoading
               ? <Preloader />
               : <button 
-                className={isValid ? 'form__button' : 'form__button form__button_disabled'} 
+                className={isValid ? 'form__button-register' : 'form__button-register form__button-register_disabled'} 
                 type='submit' 
                 disabled={!isValid}
               >

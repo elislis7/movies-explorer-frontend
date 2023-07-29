@@ -40,7 +40,7 @@
   margin-bottom: 25px;
 }
 
-.form___span {
+.form__field-span {
   font-size: 10px;
   font-weight: 400;
   line-height: 12px;
@@ -89,44 +89,6 @@
   visibility: visible;
 }
 
-.form__button {
-  width: 396px;
-  height: 45px;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  background-color: #2BE080;
-  color: #FFFFFF;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 17px;
-  margin-top: 69px;
-  margin-bottom: 16px;
-}
-
-.form__button:hover {
-  opacity: 0.8;
-}
-
-.form__button_disabled {
-  width: 320px;
-  height: 36px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  background-color: #F8F8F8;
-  color: #000000;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 15px;
-  margin-top: 69px;
-  margin-bottom: 16px;
-}
-
-.form__button_disabled:hover {
-  opacity: 0.8;
-} 
-
 .form__server-error {
   min-height: 11px;
   margin: 0;
@@ -160,16 +122,18 @@
 }
 
 /* стили меньше 1024px */
-
 @media screen and (max-width: 1023px) {
   .form {
     max-width: 396px;
     margin: 232px auto 232px;
   }
+
+  .form__field-span {
+    margin-bottom: 5px;
+  }
 }
 
 /* стили меньше 480px */
-
 @media screen and (max-width: 480px) {
   .form {
     max-width: 260px;
@@ -188,14 +152,6 @@
 
   .form__input {
     width: 260px;
-  }
-
-  .form__button {
-    width: 260px;
-    font-size: 12px;
-    line-height: 15px;
-    margin-top: 247px;
-    margin-bottom: 14px;
   }
 
   .form__text {

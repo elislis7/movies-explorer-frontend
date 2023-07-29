@@ -1,1 +1,60 @@
 @import url(../FormAuth.css);
+
+.form__button-login {
+  width: 396px;
+  height: 45px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: #2BE080;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  margin-top: 69px;
+  margin-bottom: 16px;
+}
+
+.form__button-login:hover {
+  opacity: 0.8;
+}
+
+.form__button-login_disabled {
+  width: 320px;
+  height: 36px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #F8F8F8;
+  color: #000000;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  margin-top: 69px;
+  margin-bottom: 16px;
+}
+
+.form__button-login_disabled:hover {
+  opacity: 0.8;
+}
+
+/* стили меньше 1024px */
+
+@media screen and (max-width: 1023px) {
+  .form__button-login {
+    margin-top: 158px;
+    margin-bottom: 18px;
+  }
+}
+
+/* стили меньше 480px */
+
+@media screen and (max-width: 480px) {
+  .form__button-login {
+    width: 260px;
+    font-size: 12px;
+    line-height: 15px;
+    margin-top: 247px;
+    margin-bottom: 14px;
+  }
+}
