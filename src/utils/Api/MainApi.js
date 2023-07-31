@@ -17,6 +17,7 @@ class MainApi {
     const fetchInit = {
       method: method,
       credentials: 'include'
+      /* mode: 'no-cors' */
     };
   
     try {
