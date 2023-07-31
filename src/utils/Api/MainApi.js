@@ -16,7 +16,6 @@ class MainApi {
   async _request(endpoint, method, body) {
     const fetchInit = {
       method: method,
-      credentials: 'include'
       /* mode: 'no-cors' */
     };
   
@@ -83,6 +82,9 @@ class MainApi {
 export const apiMain = new MainApi ({
   url: "https://api.lis.movies-explorer.nomoreparties.sbs",
   headers: {
-    "Content-Type": "application/json",
+    "Access-Control-Allow-Headers" : "Content-Type",
+    "Access-Control-Allow-Origin": "*",
+    'Content-Type': 'application/json',
+    "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PATCH"
   }
 });
