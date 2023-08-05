@@ -69,24 +69,23 @@ function App() {
       });
   }
 
-  function onRegister(formData) {
+  function onRegister(name, email, password) {
     setIsLoading(true);
 
-    apiMain.register(formData)
+    apiMain.register(name, email, password)
       .then((res) => {
-        setPopupStatus({
-          image: accepted,
-          message: 'Вы успешно зарегистрировались!',
-        });
-        onAuth({ 
-          email: formData.email,
-          password: formData.password 
-        })
+        if (res) {
+          setPopupStatus({
+            image: accepted,
+            message: 'Вы успешно зарегистрировались!',
+          });
+          onAuth(res.email, password)
+        }
       })
       .catch(() => {
         setPopupStatus({
           image: rejected,
-          message: ERROR,
+          message: "Что-то пошло не так! Попробуйте ещё раз.",
         });
       })
       .finally(handlePopupInfoMessage)
