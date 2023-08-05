@@ -12,4 +12,4 @@
 
 * [Ссылка макета](https://disk.yandex.ru/d/ihliJaPTjtnh7A)
 
-* [Ссылка на пул реквест]()
+* [Ссылка на пул реквест](https://github.com/elislis7/movies-explorer-frontend/pull/2)
