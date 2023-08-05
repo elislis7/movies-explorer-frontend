@@ -2,156 +2,152 @@ import React, { useEffect, useState } from 'react';
 
 import './Movies.css';
 
-import { getNumberOfCards, movieFilter } from '../../utils/utils'
-import { apiMain } from '../../utils/Api/MainApi';
-import { apiMovie } from '../../utils/Api/MoviesApi'
-import { useDebounce } from '../../hook/debounce'
-import { useMoviesContext } from '../../contexts/CurrentMovieContext';
+import { filterMovieDuration, filterMovies } from '../../utils/utils';
+import { apiMovie } from '../../utils/Api/MoviesApi';
 
 import SearchForm from './SearchForm/SearchForm';
 import Preloader from './Preloader/Preloader';
 import MoviesCardList from './MoviesCardList/MoviesCardList';
 
-function Movies() {
+function Movies(props) {
+  
+  const { onSaveMovie, onDeleteMovie, savedMovies } = props;
 
-  const { setSavedMovies } = useMoviesContext();
+  const [allMovies, setAllMovies] = useState([]);
+  const [isShortMovies, setIsShortMovies] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [filteredMovies, setFilteredMovies] = useState(savedMovies);
+  const [isNothingFound, setIsNothingFound] = useState(false);
+  const [error, setError] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
 
-  const [searchParams, setSearchParams] = useState({querry: '', includeShorts: false}); // Состояние переключателя короткометражек
-  const [searchedMovies, setSearchedMovies] = useState([]);
-  const [movies, setMovies] = useState([]); // [allMovies, setAllMovies] Состояние списка фильмов
-  const [displayedMovies, setDisplayedMovies] = useState([]);
-  const [isLoading, setIsLoading] = useState(false); // [isLoading, setIsLoading] Состояние загрузки данных
-  const [cardsAmount, setCardsAmount] = useState(getNumberOfCards());
-  const [isMoveButtonVisible, setIsMoveButtonVisible] = useState(true); // отображение кнопки "еще"
-  /* const [error, setError] = useState(''); // Состояние ошибки */
-  const [isEmptyField, setIsEmptyField] = useState(false);
-  const debouncedResize = useDebounce(handleResize);
+  function handleShortMovies() {
+    setIsShortMovies(!isShortMovies);
+    console.log("dzxfhj", isShortMovies)
 
-  function handleResize() {
-    setCardsAmount(getNumberOfCards());
+    if (!isShortMovies) {
+      if (filterMovieDuration(allMovies).length === 0) {
+        setFilteredMovies(filterMovieDuration(allMovies));
+      } else {
+        setFilteredMovies(filterMovieDuration(allMovies));
+      }
+    } else {
+      setFilteredMovies(allMovies);
+    }
+    console.log("filterMovieDuration(allMovies)", filterMovieDuration(allMovies))
+    localStorage.setItem('isShortMovies', !isShortMovies);
   }
 
-  // Обработчик события для загрузки дополнительных фильмов при нажатии на кнопку "Ещё"
-  function handleMoreMovies() {
-    const moviesToShow = searchedMovies.slice(displayedMovies.length, displayedMovies.length + cardsAmount.extraCards); 
-    setDisplayedMovies([...displayedMovies, ...moviesToShow]);
-  };
+  function handleFilteredMovies(movies, query) {
+    const moviesCardList = filterMovies(movies, query);
+
+    setAllMovies(moviesCardList);
+    setFilteredMovies(isShortMovies
+      ? filterMovieDuration(moviesCardList)
+      : moviesCardList);
+    localStorage.setItem('allMovies', JSON.stringify(movies));
+    localStorage.setItem('movies', JSON.stringify(moviesCardList));
+  }
 
   // Обработчик события для отправки формы поиска фильмов
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    
-    const {querry, shorts} = e.target.elements;
-    if (!querry.value) {
-      setIsEmptyField(true);
-      return;
-    }
-    setIsEmptyField(false);
+  function handleSearchSubmit(query) {
+    setSearchQuery(query);
+    localStorage.setItem('isShortMovies', isShortMovies);
+    localStorage.setItem('movieSearch', query);
 
-    const currentMovieSearch = {querry: querry.value, includeShorts: shorts.checked};
-    localStorage.setItem('search', JSON.stringify(currentMovieSearch));
-    setSearchParams(currentMovieSearch);
+    if (localStorage.getItem('allMovies')) {
+      const movies = JSON.parse(localStorage.getItem('allMovies'));
+      handleFilteredMovies(movies, query);
+    } else {
+      setIsLoading(true);
+      apiMovie.getMovies()
+        .then((movieData) => {
+          handleFilteredMovies(movieData, query);
+          setError(false);
+        })
+        .catch((err) => {
+          setError(true);
+          console.log(err);
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    }
   };
 
-  // Обработчик события для переключения флага "includeShorts" в параметрах поиска фильмов
-  function handleShortsClick() {
-    const newSearchParams = {...searchParams, includeShorts: !searchParams.includeShorts};
-    localStorage.setItem('search', JSON.stringify(newSearchParams));
-    setSearchParams(newSearchParams);
-  }
-
   useEffect(() => {
-    const search = JSON.parse(localStorage.getItem('search'));
-    if (search) setSearchParams(search);
-
-    const storageMovies = JSON.parse(localStorage.getItem('movies'));
-    if (storageMovies) {
-      setMovies(storageMovies);
-      return;
+    if (localStorage.getItem('isShortMovies') === 'true') {
+      setIsShortMovies(true);
+    } else {
+      setIsShortMovies(false);
     }
-    
-  setIsLoading(true);
-
-  apiMovie.getMovies()
-    .then(movies => {
-      setMovies(movies);
-      localStorage.setItem('movies', JSON.stringify(movies));
-    })
-    .catch(err => {
-      /* setError(err); */
-    })
-    .finally(() => {
-      setIsLoading(false);
-    })
-  }, [])
+  }, []);
 
   useEffect(() => {
-    setIsLoading(true);
-
-    apiMain.getSavedMovies()
-      .then(res => {
-        setSavedMovies(res);
-      })
-      .catch(err => {
-        /* setIsPopupOpen(true);
-        setText(err); */
-      })
-      .finally(() => {
-        setIsLoading(false);
-      })
-  }, [setSavedMovies])
+    if (localStorage.getItem('movieSearch')) {
+      const saveQuery = localStorage.getItem('movieSearch');
+      setSearchQuery(saveQuery);
+    }
+  }, []);
 
   useEffect(() => {
-    if (!searchParams.querry) return;
-    const currentSearchedMovies = movies.filter(
-      movie => movieFilter(movie, searchParams));
-    setSearchedMovies(currentSearchedMovies);
-  }, [searchParams, movies])
+		const moviesCardList = filterMovies(savedMovies, searchQuery);
+		setFilteredMovies(isShortMovies 
+			? filterMovieDuration(moviesCardList) 
+			: moviesCardList);
+	}, [savedMovies, isShortMovies, searchQuery]);
 
   useEffect(() => {
-    setDisplayedMovies(
-      searchedMovies.slice(0, cardsAmount.totalCards));
-  }, [cardsAmount, searchedMovies])
+    if (localStorage.getItem('movieSearch')) {
+      setIsNothingFound(filteredMovies.length === 0);
+      if (filteredMovies.length === 0) {
+        setIsNothingFound(true);
+      } else {
+        setIsNothingFound(false);
+      }
+    } else {
+      setIsNothingFound(false);
+    }
+  }, [ filteredMovies])
 
   useEffect(() => {
-    window.addEventListener('resize', debouncedResize);
-    return () => window.removeEventListener('resize', debouncedResize);
-  }, [debouncedResize]);
+    if (localStorage.getItem('movies')) {
+      const movies = JSON.parse(localStorage.getItem('movies'));
+      setAllMovies(movies);
 
-
-  useEffect(() => {
-      setIsMoveButtonVisible(
-        displayedMovies.length < searchedMovies.length);
-  }, [displayedMovies, searchedMovies])
+      if (localStorage.getItem('isShortMovies') === 'true') {
+        setFilteredMovies(filterMovieDuration(movies));
+      } else {
+        setFilteredMovies(movies);
+      }
+    }
+  }, []);
 
   return (
     <main className='main main-container'>
-      { isLoading ? null : (
-        <SearchForm 
-          searchParams={searchParams}
-          handleSubmit={handleSearchSubmit}
-          setSearchParams={setSearchParams}
-          isEmptyField={isEmptyField}
-          handleShortsClick={handleShortsClick}
-        />
+      <SearchForm 
+        onSearchMovies={handleSearchSubmit}
+        isShortMovies={isShortMovies}
+        onShortMoviesFilter={handleShortMovies}
+      />
+
+      { isLoading && <Preloader /> }
+      { isNothingFound && !isLoading && (
+        <span className='movie__not-found'>Ничего не найдено</span>
       )}
-
-      { isLoading 
-        ? <Preloader />
-        : <MoviesCardList 
-          moviesData={displayedMovies} 
-        />
-      }
-
-      {
-        isMoveButtonVisible
-          ? <div className="movies__button-container" onClick={handleMoreMovies}>
-              <button className="movies__button">
-                Еще
-              </button>
-            </div>
-          : null
-      }
+      { !isNothingFound && !isLoading && !error && (
+        <>
+          <MoviesCardList
+            cards={filteredMovies}
+            isLoading={isLoading}
+            isEmptyList={isNothingFound}
+            onSaveMovie={onSaveMovie}
+            onDeleteMovie={onDeleteMovie}
+            savedMovies={savedMovies}
+            isSavedFilms={false}
+          />
+        </>
+      )}
     </main>
   );
 };

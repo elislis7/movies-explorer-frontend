@@ -75,7 +75,6 @@
 }
 
 /* стили меньше 1024px */
-
 @media screen and (max-width: 1023px) {
   .filter__container {
     width: 36px;

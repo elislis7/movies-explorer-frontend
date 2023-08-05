@@ -1,4 +1,4 @@
-.movies {
+.movie {
 	max-width: 1140px;
 	margin: 70px auto 10px;
 	display: grid;
@@ -6,80 +6,41 @@
 	padding: 0;
 	column-gap: 28px;
 	row-gap: 32px;
-}
-
-.movie {
-	background-color: #FDFDFD;
+	background-color: inherit;
 	border-radius: 6px;
 	box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
 }
 
-.movie__description {
-	display: flex;
-	justify-content: space-between;
-	margin: 18px;
+.movies__button-container {
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 80px;
+  display: flex;
+  justify-content: center;
 }
 
-.movie__title {
-	font-size: 15px;
-	font-weight: 500;
-	line-height: 18px;
+.movies__button {
+  width: 320px;
+  height: 36px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-.movie__duration {
-	font-size: 13px;
-	font-weight: 400;
-	line-height: 18px;
-	color: #A0A0A0;
-}
-
-.movie__image {
-	width: 360px;
-	height: 200px;
-	margin-bottom: 18px;
-}
-
-.movie__container-buttons {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-bottom: 18px;
-}
-
-.movie__buttons {
-	width: 100px;
-	height: 29px;
-	font-size: 12px;
-	font-weight: 400;
-	line-height: 11px; 
-	border-radius: 30px;
-	border: none;
-	cursor: pointer;
-}
-
-.movie__buttons:hover {
-	opacity: 0.8;
-}
-
-.save {
-	background-color: #F9F9F9;
-}
-
-.save_active {
-	background-color: #EE3465;
-	background-image: url('../../../images/checkInvisible.svg');
-	background-position: center;
-	background-repeat: no-repeat;
+.movies__button:hover {
+  opacity: 0.8;
 }
 
 .movie__not-found {
-	display: flex;
+  display: flex;
+  justify-content: center;
 }
 
-/* стили меньше 1140px */
-
 @media screen and (max-width: 1140px) {
-	.movies {
+	.movie {
     margin-bottom: 30px;
     column-gap: 24px;
     row-gap: 35px;
@@ -87,17 +48,10 @@
     align-items: center;
     max-width: 708px;
 	}
-
-	.movie__image {
-		width: 342px;
-		height: 190px;
-		}
 }
 
-/* стили меньше 480px */
-
 @media screen and (max-width: 690px) {
-  .movies {
+  .movie {
     margin: 40px 10px 30px;
     display: flex;
     flex-direction: column;
@@ -105,31 +59,13 @@
 		row-gap: 16px;
   }
 
-  .movie {
-    background-color: inherit;
-    border-radius: 6px;
-    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
-	}
-
-	.movie__description {
-		margin: 14px;
-	}
-
-	.movie__title {
-		font-size: 12px;
-	}
-
-	.movie__duration {
-		font-size: 10px;
-	}
-
-	.movie__image {
-		max-width: 300px;
-		height: 168px;
-		margin-bottom: 14px;
-	}
-
 	.movie__container-buttons {
 		margin-bottom: 14px;
 	}
+}
+
+@media screen and (max-width: 480px) {
+  .movies__button {
+    width: 240px;
+  }
 }

@@ -1,78 +1,58 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import './SavedMovies.css'
+import './SavedMovies.css';
 
-import { apiMain } from '../../utils/Api/MainApi';
-import { movieFilter } from '../../utils/utils';
-import { useMoviesContext } from '../../contexts/CurrentMovieContext';
+import { filterMovieDuration, filterMovies } from '../../utils/utils';
 
 import SearchForm from '../Movies/SearchForm/SearchForm';
 import MoviesCardList from '../Movies/MoviesCardList/MoviesCardList';
-import Preloader from '../Movies/Preloader/Preloader';
 
-function SavedMovies() {
+function SavedMovies(props) {
 
-	const [isLoading, setIsLoading] = useState(false);
-	const { savedMovies, setSavedMovies } = useMoviesContext();
-	const [searchedSavedMovies, setSearchedSavedMovies] = useState([]);
-	const [searchParams, setSearchParams] = useState({querry: '', includeShorts: false});
+	const { savedMovies, onDeleteMovie } = props;
 
-	function handleSearchSubmit(evt) {
-		evt.preventDefault();
-		
-		const {querry, shorts} = evt.target.elements;
-		const currentMovieSearch = {querry: querry.value, includeShorts: shorts.checked};
-		setSearchParams(currentMovieSearch);
+	const [shortMovies, setShortMovies] = useState(false);
+	const [filteredMovies, setFilteredMovies] = useState([]);
+  const [isNothingFound, setIsNothingFound] = useState(false);
+	const [searchQuery, setSearchQuery] = useState('');
+
+	function handleShortMovies() {
+		setShortMovies(!shortMovies);
 	}
 
-	function handleShortsClick() {
-		const newSearchParams = {...searchParams, includeShorts: !searchParams.includeShorts};
-		setSearchParams(newSearchParams);
+	function handleSearchSubmit(query) {
+		setSearchQuery(query);
 	}
 
 	useEffect(() => {
-		setIsLoading(true);
-
-		apiMain.getSavedMovies()
-			.then(res => {
-				setSavedMovies(res);
-			})
-			.catch(err => {
-				/* setIsPopupOpen(true);
-				setText(err); */
-			})
-			.finally(() => {
-				setIsLoading(false);
-			})
-	}, [setSavedMovies])
+		if (filteredMovies.length === 0) {
+			setIsNothingFound(true);
+		} else {
+			setIsNothingFound(false);
+		}
+	}, [filteredMovies])
 
 	useEffect(() => {
-		const currentSearchedMovies = savedMovies.filter(movie => movieFilter(movie, searchParams));
-		setSearchedSavedMovies(currentSearchedMovies);
-	}, [searchParams, savedMovies])
+		const moviesCardList = filterMovies(savedMovies, searchQuery);
+		setFilteredMovies(shortMovies 
+			? filterMovieDuration(moviesCardList) 
+			: moviesCardList);
+	}, [savedMovies, shortMovies, searchQuery]);
 
 	return (
+		<main className='saved-movies'>
+			<SearchForm 
+				onSearchMovies={handleSearchSubmit}
+				onShortMoviesFilter={handleShortMovies}
+			/>
 
-		<main classNameName='saved-movies'>
-			{
-				isLoading 
-					? null
-					: (
-						<SearchForm 
-							searchParams={searchParams}
-							handleSubmit={handleSearchSubmit}
-							setSearchParams={setSearchParams}
-							isRequired={false}
-							handleShortsClick={handleShortsClick}
-						/>
-					)
-			}
-
-			{
-				isLoading
-					? <Preloader />
-					: <MoviesCardList moviesData={searchedSavedMovies} />
-      }
+			<MoviesCardList 
+				cards={filteredMovies}
+        isEmptyList={isNothingFound}
+				isSavedFilms={true}
+				savedMovies={savedMovies}
+        onDeleteMovie={onDeleteMovie}
+			/>
 		</main>
 	);
 }

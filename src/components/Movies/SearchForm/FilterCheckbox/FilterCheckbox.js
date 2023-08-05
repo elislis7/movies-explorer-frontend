@@ -2,20 +2,20 @@ import './FilterCheckbox.css'
 
 function FilterCheckbox(props) {
 
-  const { isChecked, checkHandler } = props;
+  const { isShortMovies, onShortMoviesFilter } = props;
 
   return (
-    <div className="filter">
-      <label className="filter__container">
+    <div className='filter'>
+      <label className='filter__container'>
         <input 
-          className="filter__input" 
-          type="checkbox" 
-          checked={isChecked}
-          onChange={checkHandler}
+          className='filter__input' 
+          type='checkbox' 
+          checked={isShortMovies}
+          onChange={onShortMoviesFilter}
         />
-        <span className="filter__slider filter__slider_round"></span>
+        <span className='filter__slider filter__slider_round'></span>
       </label>
-      <p className="filter__text">Короткометражки</p>
+      <p className='filter__text'>Короткометражки</p>
     </div>
   );
 }

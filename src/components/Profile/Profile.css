@@ -17,15 +17,13 @@
 .profile__form {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  width: 410px;
 }
 
 .profile__field {
-  /* width: 410px; */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* position: relative; */
 }
 
 .profile__field:not(:last-child) {
@@ -35,13 +33,14 @@
 }
 
 .profile__span {
+  width: 34px;
   font-size: 11px;
   font-weight: 500;
   line-height: 13px;
 }
 
 .profile__input {
-  /* width: 80%; */
+  width: 90%;
   text-align: right;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -55,9 +54,6 @@
   border: none;
   cursor: pointer;
   color: #000000;
-  /* position: absolute;
-  top: 0;
-  right: 0; */
 }
 
 .profile__buttons {
@@ -109,18 +105,41 @@
 }
 
 .profile__submit-button {
-  width: 410px;
+  width: 396px;
   height: 45px;
   border: none;
   border-radius: 3px;
+  cursor: pointer;
+  background-color: #2BE080;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  margin: 220px auto 16px;
+}
+
+.profile__submit-button:hover {
+  opacity: 0.8;
+}
+
+.profile__submit-button_disabled {
+  width: 320px;
+  height: 36px;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
   background-color: #F8F8F8;
   color: #000000;
   font-size: 12px;
   font-weight: 500;
   line-height: 15px;
-  margin-top: 223px;
+  margin: 220px auto 16px;
 }
+
+.profile__submit-button_disabled:hover {
+  opacity: 0.8;
+}
+
 
 /* стили меньше 1024px */
 @media screen and (max-width: 1023px) {
@@ -149,12 +168,17 @@
   .profile__button_type_logout {
     line-height: 18px;
   }
+
+  .profile__submit-button {
+    margin-top: 223px;
+    margin-bottom: 18px;
+  }
 }
 
 /* стили меньше 480px */
 @media screen and (max-width: 480px) {
   .profile {
-    max-width: 260px;
+    width: 260px;
     margin-top: 144px;
     margin-bottom: 40px;
   }
@@ -191,9 +215,10 @@
   }
 
   .profile__submit-button {
-    width: 225px;
-    height: 45px;
-    border-radius: 6px;
+    width: 260px;
+    font-size: 12px;
+    line-height: 15px;
     margin-top: 345px;
+    margin-bottom: 14px;
   }
 }

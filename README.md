@@ -2,8 +2,14 @@
 
 **Описание проекта**
 
-Фронтенд часть дипломной работы
+Функционал фронтенд части дипломной работы
 
-**Ссылка на копию макета Figma**
+**Ссылки**
+
+* [Ссылка на задеплоенный на сервере проект](https://api.lis.movies-explorer.nomoreparties.sbs/)
+ 
+* [Ссылка на Репозиторий GitHub](https://github.com/elislis7/movies-explorer-frontend/tree/level-3)
 
 * [Ссылка макета](https://disk.yandex.ru/d/ihliJaPTjtnh7A)
+
+* [Ссылка на пул реквест]()

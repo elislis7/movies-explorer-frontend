@@ -1,11 +1,12 @@
 class MainApi {
   constructor(config) {
     this._url = config.url;
-    console.log(this._url)
+    this._headers = config.headers;
   }
 
   // обработчик ошибок
   _handleResponse(res) {
+    console.log(res)
     if (res.ok) {
         return res.json();
       } else {
@@ -13,10 +14,20 @@ class MainApi {
       }
   }
 
-  async _request(endpoint, method, body) {
+  async _request(endpoint, method, body, jwt) {
+    const initHeaders = jwt
+      ? {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${jwt}`
+        }
+      : { 
+        'Content-Type': 'application/json' 
+        }
+
     const fetchInit = {
       method: method,
-      /* mode: 'no-cors' */
+      headers: initHeaders,
+      credential: 'include'
     };
   
     try {
@@ -40,28 +51,28 @@ class MainApi {
   }
 
   // получение инфо о пользователе
-  getUser() {
-    return this._request('users/me', 'GET')
+  getUserInfo(token) {
+    return this._request('users/me', 'GET', null, token)
   }
 
   // редактирование инфо о пользователе
-  updateUser(userData) {
-    return this._request('users/me', 'PATCH', userData)
+  updateUser(userData, token) {
+    return this._request('users/me', 'PATCH', userData, token)
   }
 
   //получение списка сохраненых фильмов
-  getSavedMovies() {
-    return this._request('movies', 'GET')
+  getUserMovies(token) {
+    return this._request('movies', 'GET', null, token)
   }
 
   //добавление фильма в сохраненки
-  addMovie(movieData) {
-    return this._request('movies', 'POST', movieData)
+  saveMovie(movies, token) {
+    return this._request('movies', 'POST', movies, token)
   }
 
   //удаление фильма из сохраненок
-  deleteMovie(movieId) {
-    return this._request(`movies/${movieId}`, 'DELETE')
+  deleteMovie(movieId, token) {
+    return this._request(`movies/${movieId}`, 'DELETE', null, token)
   }
 
   // логирование пользователя
@@ -70,21 +81,15 @@ class MainApi {
   }
 
   // регистрация пользователя
-  register({name, email, password}) {
-    return this._request('signup', 'POST', {name, email, password})
-  }
-
-  logOut() {
-    return this._request('signout', 'GET')
+  register(authData) {
+    return this._request('signup', 'POST', authData)
   }
 }
 
 export const apiMain = new MainApi ({
-  url: "https://api.lis.movies-explorer.nomoreparties.sbs",
+  url: 'https://api.lis.movies-explorer.nomoreparties.sbs',
+  // url: 'http://localhost:3001',
   headers: {
-    "Access-Control-Allow-Headers" : "Content-Type",
-    "Access-Control-Allow-Origin": "*",
     'Content-Type': 'application/json',
-    "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PATCH"
   }
 });

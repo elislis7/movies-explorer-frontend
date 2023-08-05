@@ -19,6 +19,7 @@
   width: 100%;
   height: 100%;
   background-color: #FFF;
+  overflow: auto;
 }
 
 .header__logo {
@@ -60,7 +61,7 @@
     background-repeat: no-repeat;
     background-color: inherit;
     border: none;
-    margin: 15px 30px 15px 0;
+    margin: 15px 15px 15px 0;
   }
 
   .header__burger-open {
@@ -76,7 +77,7 @@
 
   /* СТИЛЬ ДЛЯ ПОДЛОЖКИ ЧЕРНОЙ ПОД БУРГЕР МЕНЮ */
 
-  /* .header__container-hidden {
+  .header__container-hidden_active {
     background-color: rgba(00, 00, 00, .3);
     position: absolute;
     top: 0;
@@ -84,7 +85,7 @@
     z-index: 1;
     width: 100%;
     height: 100vh;
-  } */
+  }
 
   .header__description-hidden {
     display: flex;
@@ -132,10 +133,14 @@
   }
 
   .header__burger-open {
+    width: 30px;
+    height: 30px;
     margin-right: 14px;
   }
 
   .header__burger-close {
+    width: 30px;
+    height: 30px;
     margin-right: 14px;
   }
 
@@ -152,7 +157,8 @@
 
   .burger__menu_links {
     display: flex;
-    flex-direction: column;
+    flex-direction: column;    
+    margin-top: 145px;
   }
 
   .burger__menu_link {

@@ -1,49 +1,38 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import './Login.css'
 
-import logo from '../../../images/logo.svg';
+import logo from '../../images/logo.svg';
 
-import Preloader from '../../Movies/Preloader/Preloader';
+import Preloader from '../Movies/Preloader/Preloader';
 
-import { useFormValidation } from "../../../hook/formValidation";
-import { apiMain } from "../../../utils/Api/MainApi";
-import { useCurrentUserContext } from '../../../contexts/CurrentUserContext';
-import { PATTERN_EMAIL } from '../../../utils/constants';
+import { useFormValidation } from '../../hook/formValidation';
+import { PATTERN_EMAIL } from '../../utils/constants';
 
 function Login(props) {
 
-  const { title, buttonText, text, link, linkText, changeStatus } = props;
+  const { 
+    title,
+    buttonText,
+    text,
+    link, 
+    linkText, 
+    onAuth, 
+    isLoading 
+  } = props;
   const { values, handleChange, errors, isValid, resetForm, inputValidities } = useFormValidation();
-  
-  const navigate = useNavigate();
-  const { setCurrentUser } = useCurrentUserContext();
-  const [message, setMessage] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+
+  const [message, setMessage] = useState('');
 
   function handleSubmit(e) {
     e.preventDefault();
 
     setMessage('');
-    setIsLoading(true);
-
-    apiMain.login(values)
-      .then((userData) => {
-        setCurrentUser(userData);
-        changeStatus(true);
-        localStorage.setItem('currentId', userData._id);
-
-        resetForm();
-        navigate('/movies', { replace: true });
-      })
-      .catch(err => {
-        setMessage(err)
-      })
-      .finally(() => {
-        setIsLoading(false);
-      })
+    resetForm();
+    onAuth(values);
   }
+
   return (
     <div className='form'>
       <Link className='form__logo' to='/'>
@@ -59,15 +48,15 @@ function Login(props) {
               ? 'form__input'
               : 'form__input form__input_type_error'
             }
-            id="email"
-            name="email"
-            type="email"
+            id='email'
+            name='email'
+            type='email'
             onChange={handleChange}
-            placeholder="pochta@yandex.ru"
+            placeholder='pochta@yandex.ru'
             value={values.email || ''}
             pattern={PATTERN_EMAIL}
             required  />
-          <span className="error">{errors.email}</span>
+          <span className='error'>{errors.email}</span>
         </div>
 
         <div className='form__field'>
@@ -78,14 +67,14 @@ function Login(props) {
               ? 'form__input'
               : 'form__input form__input_type_error'
             }
-            id="password"
-            name="password"
-            type="password"
+            id='password'
+            name='password'
+            type='password'
             onChange={handleChange}
-            placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;"
+            placeholder='&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;'
             value={values.password || ''}
             required />
-          <span className="error">{errors.password}</span>
+          <span className='error'>{errors.password}</span>
         </div>
         {
             isLoading
