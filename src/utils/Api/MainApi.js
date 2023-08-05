@@ -81,8 +81,8 @@ class MainApi {
   }
 
   // регистрация пользователя
-  register(authData) {
-    return this._request('signup', 'POST', authData)
+  register(name, email, password) {
+    return this._request('signup', 'POST', {name, email, password})
   }
 }
 
