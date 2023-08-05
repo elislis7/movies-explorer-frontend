@@ -53,7 +53,7 @@ function Register(props) {
               onChange={handleChange}
               placeholder='Иван'
               value={values.name || ''}
-              required
+              /* required */
             />
             <span className='error'>{errors.name}</span>
           </div>
@@ -73,7 +73,7 @@ function Register(props) {
               placeholder='pochta@yandex.ru'
               value={values.email || ''}
               pattern={PATTERN_EMAIL}
-              required
+              /* required */
             />
             <span className='error'>{errors.email}</span>
           </div>
@@ -92,7 +92,7 @@ function Register(props) {
               onChange={handleChange}
               placeholder='&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;'
               value={values.password || ''}
-              required
+              /* required */
             />
             <span className='error'>{errors.password}</span>
           </div>
