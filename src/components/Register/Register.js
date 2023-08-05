@@ -27,11 +27,8 @@ function Register(props) {
 
     setMessage('');
     resetForm();
-    onRegister({
-      name: 'Оля',
-      email: 'lk@rd.ru',
-      password: '123',
-    });
+    onRegister(values);
+    console.log(values)
   }
 
   return (

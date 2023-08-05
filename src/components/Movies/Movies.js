@@ -23,7 +23,6 @@ function Movies(props) {
 
   function handleShortMovies() {
     setIsShortMovies(!isShortMovies);
-    console.log("dzxfhj", isShortMovies)
 
     if (!isShortMovies) {
       if (filterMovieDuration(allMovies).length === 0) {

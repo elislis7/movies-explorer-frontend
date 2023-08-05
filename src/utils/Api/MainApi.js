@@ -81,14 +81,14 @@ class MainApi {
   }
 
   // регистрация пользователя
-  register(name, email, password) {
-    return this._request('signup', 'POST', {name, email, password})
+  register(authData) {
+    return this._request('signup', 'POST', authData)
   }
 }
 
 export const apiMain = new MainApi ({
-  url: 'https://api.lis.movies-explorer.nomoreparties.sbs',
-  // url: 'http://localhost:3001',
+  // url: 'https://api.lis.movies-explorer.nomoreparties.sbs',
+  url: 'http://localhost:3001',
   headers: {
     'Content-Type': 'application/json',
   }

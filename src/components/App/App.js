@@ -69,23 +69,24 @@ function App() {
       });
   }
 
-  function onRegister(name, email, password) {
+  function onRegister(values) {
     setIsLoading(true);
 
-    apiMain.register(name, email, password)
+    apiMain.register(values)
       .then((res) => {
-        if (res) {
-          setPopupStatus({
-            image: accepted,
-            message: 'Вы успешно зарегистрировались!',
-          });
-          onAuth(res.email, password)
-        }
+        setPopupStatus({
+          image: accepted,
+          message: 'Вы успешно зарегистрировались!',
+        });
+        onAuth({ 
+          email: values.email,
+          password: values.password 
+        })
       })
       .catch(() => {
         setPopupStatus({
           image: rejected,
-          message: "Что-то пошло не так! Попробуйте ещё раз.",
+          message: ERROR,
         });
       })
       .finally(handlePopupInfoMessage)
@@ -109,7 +110,9 @@ function App() {
 
       apiMain.getUserMovies(jwt)
         .then((movies) => {
-          setSavedMovies(movies)
+          // Filter out any undefined elements from the saved movies array
+          const filteredMovies = movies.filter((movie) => movie !== undefined);
+          setSavedMovies(filteredMovies);
         })
         .catch((err) => console.log(`Произошла ошибка: ${err}`))
     }

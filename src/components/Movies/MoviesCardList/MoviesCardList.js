@@ -44,8 +44,9 @@ function MoviesCardList(props) {
     }
   }
 
-	function getSavedMovie(savedMovies, movies) {
-		return savedMovies.find((savedMovie) => savedMovie.movieId === movies.id)
+	function getSavedMovie(savedMovies, card) {
+		console.log(savedMovies)
+		return savedMovies.find((savedMovie) => savedMovie.movieId === card.id)
 	}
 
 	useEffect(() => {

@@ -58,7 +58,7 @@ function MoviesCard(props) {
           </button>
         ) : (
           <button
-            className='movie__buttons element__delete'
+            className='delete-button'
             type='button'
             onClick={handleDeleteMovie}
           ></button>
