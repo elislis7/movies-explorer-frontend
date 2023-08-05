@@ -69,18 +69,18 @@ function App() {
       });
   }
 
-  function onRegister(values) {
+  function onRegister(formData) {
     setIsLoading(true);
 
-    apiMain.register(values)
-      .then(() => {
+    apiMain.register(formData)
+      .then((res) => {
         setPopupStatus({
           image: accepted,
           message: 'Вы успешно зарегистрировались!',
         });
         onAuth({ 
-          email: values.email,
-          password: values.password 
+          email: formData.email,
+          password: formData.password 
         })
       })
       .catch(() => {
