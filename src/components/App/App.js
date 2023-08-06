@@ -163,7 +163,7 @@ function App() {
     function handleDeleteMovie(movie) {
       const jwt = localStorage.getItem('jwt');
 
-      apiMain.deleteMovie(movie._id, jwt) 
+      apiMain.deleteMovie({ id: movie._id }, jwt) 
         .then(() => {
           setSavedMovies((state) => 
             state.filter((item) => item._id !== movie._id))
