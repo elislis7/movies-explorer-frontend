@@ -56,6 +56,8 @@ function App() {
           setIsLoggedIn(true);
           navigate('/movies');
         }
+        res.status(500).send({ message: 'На сервере произошла ошибка', err: err.message });
+        next();
       })
       .catch(() => {
         setPopupStatus({
