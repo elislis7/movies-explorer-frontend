@@ -56,15 +56,15 @@ function App() {
           setIsLoggedIn(true);
           navigate('/movies');
         }
-        res.status(500).send({ message: 'На сервере произошла ошибка', err: err.message });
-        next();
       })
-      .catch(() => {
+      .catch((res, err, next) => {
         setPopupStatus({
           image: rejected,
           message: ERROR,
         });
         handlePopupInfoMessage();
+        res.status(500).send({ message: 'На сервере произошла ошибка', err: err.message });
+        next();
       })
       .finally(() => {
         setIsLoading(false);
