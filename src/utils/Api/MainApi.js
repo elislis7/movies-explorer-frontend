@@ -87,8 +87,8 @@ class MainApi {
 }
 
 export const apiMain = new MainApi ({
-  url: 'https://api.lis.movies-explorer.nomoreparties.sbs',
-  // url: 'http://localhost:3001',
+  //url: 'https://api.lis.movies-explorer.nomoreparties.sbs',
+  url: 'http://localhost:3001',
   headers: {
     'Content-Type': 'application/json',
   }

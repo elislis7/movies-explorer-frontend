@@ -46,10 +46,10 @@ function App() {
     setIsSuccessPopupOpen(true);
   }
 
-  function onAuth(authData) {
+  function onAuth(values) {
     setIsLoading(true);
 
-    apiMain.login(authData)
+    apiMain.login(values)
       .then((res) => {
         if (res) {
           localStorage.setItem('jwt', res.token);
@@ -57,31 +57,30 @@ function App() {
           navigate('/movies');
         }
       })
-      .catch((err) => {
+      .catch(() => {
         setPopupStatus({
           image: rejected,
           message: ERROR,
         });
         handlePopupInfoMessage();
-        console.error('Error occurred while authenticating:', err);
       })
       .finally(() => {
         setIsLoading(false);
       });
   }
 
-  function onRegister(authData) {
+  function onRegister(values) {
     setIsLoading(true);
 
-    apiMain.register(authData)
+    apiMain.register(values)
       .then((res) => {
         setPopupStatus({
           image: accepted,
           message: 'Вы успешно зарегистрировались!',
         });
         onAuth({ 
-          email: authData.email,
-          password: authData.password 
+          email: values.email,
+          password: values.password 
         })
       })
       .catch(() => {
