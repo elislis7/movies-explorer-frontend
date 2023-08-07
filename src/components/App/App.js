@@ -57,32 +57,31 @@ function App() {
           navigate('/movies');
         }
       })
-      .catch((res, err, next) => {
+      .catch((err) => {
         setPopupStatus({
           image: rejected,
           message: ERROR,
         });
         handlePopupInfoMessage();
-        res.status(500).send({ message: 'На сервере произошла ошибка', err: err.message });
-        next();
+        console.error('Error occurred while authenticating:', err);
       })
       .finally(() => {
         setIsLoading(false);
       });
   }
 
-  function onRegister(values) {
+  function onRegister(authData) {
     setIsLoading(true);
 
-    apiMain.register(values)
+    apiMain.register(authData)
       .then((res) => {
         setPopupStatus({
           image: accepted,
           message: 'Вы успешно зарегистрировались!',
         });
         onAuth({ 
-          email: values.email,
-          password: values.password 
+          email: authData.email,
+          password: authData.password 
         })
       })
       .catch(() => {
