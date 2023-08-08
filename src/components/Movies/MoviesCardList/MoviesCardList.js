@@ -3,7 +3,17 @@ import { useLocation } from 'react-router-dom';
 
 import './MoviesCardList.css';
 
-import MoviesCard from '../MoviesCard/MoviesCard'
+import {
+	DISPLAY_WIDTH_LARGE,
+	DISPLAY_WIDTH_MEDIUM,
+	TWELVE_DISPLAYED_CARDS,
+	EIGHT_DISPLAYED_CARDS,
+	FIVE_DISPLAYED_CARDS,
+	THREE_ADDED_CARDS,
+	TWO_ADDED_CARDS,
+} from '../../../utils/constants';
+
+import MoviesCard from '../MoviesCard/MoviesCard';
 import Preloader from '../Preloader/Preloader';
 
 function MoviesCardList(props) {
@@ -24,23 +34,23 @@ function MoviesCardList(props) {
 
 	function showMovie() {
     const display = window.innerWidth;
-    if (display > 1140) {
-      setShowListMovies(12);
-    } else if (display > 900) {
-      setShowListMovies(8);
+    if (display > DISPLAY_WIDTH_LARGE) {
+      setShowListMovies(TWELVE_DISPLAYED_CARDS);
+    } else if (display > DISPLAY_WIDTH_MEDIUM) {
+      setShowListMovies(EIGHT_DISPLAYED_CARDS);
     } else {
-      setShowListMovies(5);
+      setShowListMovies(FIVE_DISPLAYED_CARDS);
     }
   }
 
   function showMoreMovie() {
     const display = window.innerWidth;
-    if (display > 1140) {
-      setShowListMovies(showListMovies + 3);
-    } else if (display > 900) {
-      setShowListMovies(showListMovies + 2);
+    if (display > DISPLAY_WIDTH_LARGE) {
+      setShowListMovies(showListMovies + THREE_ADDED_CARDS);
+    } else if (display > DISPLAY_WIDTH_MEDIUM) {
+      setShowListMovies(showListMovies + TWO_ADDED_CARDS);
     } else {
-      setShowListMovies(showListMovies + 2);
+      setShowListMovies(showListMovies + TWO_ADDED_CARDS);
     }
   }
 

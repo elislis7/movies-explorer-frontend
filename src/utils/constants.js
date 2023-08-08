@@ -1,5 +1,15 @@
 const BEATFILM_URL = 'https://api.nomoreparties.co';
 
+const DISPLAY_WIDTH_LARGE = 1140;
+const DISPLAY_WIDTH_MEDIUM = 900;
+
+const TWELVE_DISPLAYED_CARDS = 12;
+const EIGHT_DISPLAYED_CARDS = 8;
+const FIVE_DISPLAYED_CARDS = 5;
+
+const THREE_ADDED_CARDS = 3;
+const TWO_ADDED_CARDS = 2;
+
 // системные сообщения
 const CHANGE_SUCCESS = 'Профиль успешно обновлен!';
 const EMPTY_FIELD = 'Введите ключевое слово';
@@ -17,5 +27,12 @@ export {
   EMPTY_FIELD,
   ERROR,
   SHORTS_DURATION,
-  PATTERN_EMAIL
+  PATTERN_EMAIL,
+  DISPLAY_WIDTH_LARGE,
+  DISPLAY_WIDTH_MEDIUM,
+  TWELVE_DISPLAYED_CARDS,
+  EIGHT_DISPLAYED_CARDS,
+  FIVE_DISPLAYED_CARDS,
+  THREE_ADDED_CARDS,
+  TWO_ADDED_CARDS,
 }
