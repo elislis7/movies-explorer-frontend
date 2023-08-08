@@ -11,9 +11,13 @@
 }
 
 .movie__title {
+	width: 200px;
 	font-size: 15px;
 	font-weight: 500;
 	line-height: 18px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .movie__duration {
@@ -82,6 +86,7 @@
 .movie__not-found {
 	display: flex;
 	justify-content: center;
+	margin-top: 70px;
 }
 
 /* стили меньше 1140px */

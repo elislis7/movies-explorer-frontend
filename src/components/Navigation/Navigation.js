@@ -18,12 +18,12 @@ function Navigation(props) {
         <NavLink className={makeActive} to='/saved-movies' onClick={onClickLink}>Сохранённые фильмы</NavLink>
       </nav>
 
-      <button className='account' onClick={onClickLink}>
+      <Link className='account' onClick={onClickLink} to='/profile'>
         <div className='account__text'>Аккаунт</div>
-        <Link className='account__link-icon' to='/profile'>
+        <div className='account__link-icon'>
           <img className='account__icon' src={account} alt='Иконка человечка' />
-        </Link>
-      </button>
+        </div>
+      </Link>
     </div>
   );
 }

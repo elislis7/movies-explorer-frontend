@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Link } from "react-router-dom";
 
 import './MoviesCard.css'
 
@@ -15,19 +16,16 @@ function MoviesCard(props) {
     isSavedFilms
   } = props;
 
-  const [isSaved, setIsSaved] = useState(saved);
-
   function handleDeleteMovie() {
     onDeleteMovie(movie);
   }
 
   function handleSaveMovie() {
-    if (isSaved) {
+    if (saved) {
       onDeleteMovie(savedMovies.filter((m) => m.movieId === movie.id)[0]);
     } else {
       onSaveMovie(movie);
     }
-    setIsSaved(!isSaved);
   }
 
   return (
@@ -38,14 +36,16 @@ function MoviesCard(props) {
         <p className='movie__duration'>{convertDuration(movie.duration)}</p>
       </div>
 
-      <img className='movie__image' 
-        src={
-          isSavedFilms
-              ? movie.image
-              : `https://api.nomoreparties.co/${movie.image.url}`
-          } 
-          alt={movie.nameRU}
-      />
+      <Link to={movie.trailerLink} target='_blank' >
+        <img className='movie__image' 
+          src={
+            isSavedFilms
+                ? movie.image
+                : `https://api.nomoreparties.co/${movie.image.url}`
+            } 
+            alt={movie.nameRU}
+        />
+      </Link>
 
       <div className='movie__container-buttons'>
         { !isSavedFilms ? (

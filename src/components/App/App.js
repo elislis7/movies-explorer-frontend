@@ -89,7 +89,10 @@ function App() {
           message: ERROR,
         });
       })
-      .finally(handlePopupInfoMessage)
+      .finally(() => {
+        setIsLoading(false);
+        handlePopupInfoMessage();
+      })
   }
 
   useEffect(() => {
@@ -110,9 +113,7 @@ function App() {
 
       apiMain.getUserMovies(jwt)
         .then((movies) => {
-          // Filter out any undefined elements from the saved movies array
-          const filteredMovies = movies.filter((movie) => movie !== undefined);
-          setSavedMovies(filteredMovies);
+          setSavedMovies(movies);
         })
         .catch((err) => console.log(`Произошла ошибка: ${err}`))
     }
@@ -121,6 +122,7 @@ function App() {
   function handleUpdateUser(data) {
     const jwt = localStorage.getItem('jwt');
 
+    setIsLoading(true);
     apiMain.updateUser(data, jwt)
       .then((user) => {
         setPopupStatus({
@@ -139,14 +141,21 @@ function App() {
     }
 
     function handleSaveMovie(movie) {
-      console.log("movie", movie)
       const jwt = localStorage.getItem('jwt');
       
       const cardMovie = { 
         ...movie,
-        image: `https://api.nomoreparties.co/${movie.image.url}`,
-        thumbnail: `https://api.nomoreparties.co/${movie.image.formats.thumbnail.url}`,
-        movieId: movie.id
+        country: movie.country,
+        director: movie.director,
+        duration: movie.duration,
+        year: movie.year,
+        description: movie.description,
+        image: "https://api.nomoreparties.co" + movie.image.url,
+        trailerLink: movie.trailerLink,
+        nameRU: movie.nameRU,
+        nameEN: movie.nameEN,
+        thumbnail: "https://api.nomoreparties.co" + movie.image.formats.thumbnail.url,
+        movieId: movie.id,
       }
 
       delete cardMovie.id
@@ -163,7 +172,7 @@ function App() {
     function handleDeleteMovie(movie) {
       const jwt = localStorage.getItem('jwt');
 
-      apiMain.deleteMovie({ id: movie._id }, jwt) 
+      apiMain.deleteMovie(movie._id, jwt) 
         .then(() => {
           setSavedMovies((state) => 
             state.filter((item) => item._id !== movie._id))
@@ -241,7 +250,8 @@ function App() {
               <ProtectedRoute isLoggedIn={isLoggedIn}>
                 <>
                   <Header isLoggedIn={isLoggedIn}/>
-                  <Movies 
+                  <Movies
+                    isLoading={isLoading}
                     savedMovies={savedMovies} // сохраненые фильмы
                     onDeleteMovie={handleDeleteMovie} // удаление фильма
                     onSaveMovie={handleSaveMovie} // сохраняем фильм
@@ -256,6 +266,7 @@ function App() {
                 <>
                   <Header isLoggedIn={isLoggedIn}/>
                   <SavedMovies
+                    isLoading={isLoading}
                     savedMovies={savedMovies} // сохраненые фильмы
                     onDeleteMovie={handleDeleteMovie} // удаление фильма
                   />
@@ -270,7 +281,8 @@ function App() {
               <>
                 <NotFoundPages />
               </>
-            }/>
+              }
+            />
           </Routes>
 
           <InfoTooltip

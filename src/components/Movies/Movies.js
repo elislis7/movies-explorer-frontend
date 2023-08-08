@@ -6,7 +6,6 @@ import { filterMovieDuration, filterMovies } from '../../utils/utils';
 import { apiMovie } from '../../utils/Api/MoviesApi';
 
 import SearchForm from './SearchForm/SearchForm';
-import Preloader from './Preloader/Preloader';
 import MoviesCardList from './MoviesCardList/MoviesCardList';
 
 function Movies(props) {
@@ -14,12 +13,11 @@ function Movies(props) {
   const { onSaveMovie, onDeleteMovie, savedMovies } = props;
 
   const [allMovies, setAllMovies] = useState([]);
+  const [filteredMovies, setFilteredMovies] = useState([]);
   const [isShortMovies, setIsShortMovies] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [filteredMovies, setFilteredMovies] = useState(savedMovies);
   const [isNothingFound, setIsNothingFound] = useState(false);
   const [error, setError] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
 
   function handleShortMovies() {
     setIsShortMovies(!isShortMovies);
@@ -33,15 +31,15 @@ function Movies(props) {
     } else {
       setFilteredMovies(allMovies);
     }
-    console.log("filterMovieDuration(allMovies)", filterMovieDuration(allMovies))
+
     localStorage.setItem('isShortMovies', !isShortMovies);
   }
 
-  function handleFilteredMovies(movies, query) {
-    const moviesCardList = filterMovies(movies, query);
+  function handleFilteredMovies(movies, query, short) {
+    const moviesCardList = filterMovies(movies, query, short);
 
     setAllMovies(moviesCardList);
-    setFilteredMovies(isShortMovies
+    setFilteredMovies(short
       ? filterMovieDuration(moviesCardList)
       : moviesCardList);
     localStorage.setItem('allMovies', JSON.stringify(movies));
@@ -50,18 +48,18 @@ function Movies(props) {
 
   // Обработчик события для отправки формы поиска фильмов
   function handleSearchSubmit(query) {
-    setSearchQuery(query);
     localStorage.setItem('isShortMovies', isShortMovies);
     localStorage.setItem('movieSearch', query);
 
     if (localStorage.getItem('allMovies')) {
       const movies = JSON.parse(localStorage.getItem('allMovies'));
-      handleFilteredMovies(movies, query);
+      handleFilteredMovies(movies, query, isShortMovies);
     } else {
       setIsLoading(true);
+      
       apiMovie.getMovies()
         .then((movieData) => {
-          handleFilteredMovies(movieData, query);
+          handleFilteredMovies(movieData, query, isShortMovies);
           setError(false);
         })
         .catch((err) => {
@@ -75,28 +73,6 @@ function Movies(props) {
   };
 
   useEffect(() => {
-    if (localStorage.getItem('isShortMovies') === 'true') {
-      setIsShortMovies(true);
-    } else {
-      setIsShortMovies(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (localStorage.getItem('movieSearch')) {
-      const saveQuery = localStorage.getItem('movieSearch');
-      setSearchQuery(saveQuery);
-    }
-  }, []);
-
-  useEffect(() => {
-		const moviesCardList = filterMovies(savedMovies, searchQuery);
-		setFilteredMovies(isShortMovies 
-			? filterMovieDuration(moviesCardList) 
-			: moviesCardList);
-	}, [savedMovies, isShortMovies, searchQuery]);
-
-  useEffect(() => {
     if (localStorage.getItem('movieSearch')) {
       setIsNothingFound(filteredMovies.length === 0);
       if (filteredMovies.length === 0) {
@@ -107,7 +83,7 @@ function Movies(props) {
     } else {
       setIsNothingFound(false);
     }
-  }, [ filteredMovies])
+  }, [filteredMovies])
 
   useEffect(() => {
     if (localStorage.getItem('movies')) {
@@ -122,6 +98,14 @@ function Movies(props) {
     }
   }, []);
 
+  useEffect(() => {
+    if (localStorage.getItem('isShortMovies') === 'true') {
+      setIsShortMovies(true);
+    } else {
+      setIsShortMovies(false);
+    }
+  }, []);
+
   return (
     <main className='main main-container'>
       <SearchForm 
@@ -130,23 +114,15 @@ function Movies(props) {
         onShortMoviesFilter={handleShortMovies}
       />
 
-      { isLoading && <Preloader /> }
-      { isNothingFound && !isLoading && (
-        <span className='movie__not-found'>Ничего не найдено</span>
-      )}
-      { !isNothingFound && !isLoading && !error && (
-        <>
-          <MoviesCardList
-            cards={filteredMovies}
-            isLoading={isLoading}
-            isEmptyList={isNothingFound}
-            onSaveMovie={onSaveMovie}
-            onDeleteMovie={onDeleteMovie}
-            savedMovies={savedMovies}
-            isSavedFilms={false}
-          />
-        </>
-      )}
+      <MoviesCardList
+        cards={filteredMovies}
+        isLoading={isLoading}
+        isEmptyList={isNothingFound}
+        onSaveMovie={onSaveMovie}
+        onDeleteMovie={onDeleteMovie}
+        savedMovies={savedMovies}
+        isSavedFilms={false}
+      />
     </main>
   );
 };

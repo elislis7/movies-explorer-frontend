@@ -45,8 +45,7 @@ function MoviesCardList(props) {
   }
 
 	function getSavedMovie(savedMovies, card) {
-		console.log(savedMovies)
-		return savedMovies.find((savedMovie) => savedMovie.movieId === card.id)
+		return savedMovies.find((savedMovie) => savedMovie && savedMovie.movieId === card.id);
 	}
 
 	useEffect(() => {
@@ -74,7 +73,7 @@ function MoviesCardList(props) {
 						<div className='movie'>
 							{cards.map((film) => (
 								<MoviesCard 
-									key={film.id || film._id}
+									key={isSavedFilms ? film._id : film.id}
 									saved={getSavedMovie(savedMovies, film)}
 									movie={film}
 									movies={cards}
@@ -91,7 +90,7 @@ function MoviesCardList(props) {
 						<div className='movie'>
 							{cards.slice(0, showListMovies).map((film) => (
 								<MoviesCard 
-									key={film.id || film._id}
+								key={isSavedFilms ? film._id : film.id}
 									saved={getSavedMovie(savedMovies, film)}
 									movie={film}
 									movies={cards}

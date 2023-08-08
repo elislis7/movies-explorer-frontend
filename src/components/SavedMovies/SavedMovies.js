@@ -11,13 +11,13 @@ function SavedMovies(props) {
 
 	const { savedMovies, onDeleteMovie } = props;
 
-	const [shortMovies, setShortMovies] = useState(false);
+	const [isShortMovies, setIsShortMovies] = useState(false);
 	const [filteredMovies, setFilteredMovies] = useState([]);
   const [isNothingFound, setIsNothingFound] = useState(false);
 	const [searchQuery, setSearchQuery] = useState('');
 
 	function handleShortMovies() {
-		setShortMovies(!shortMovies);
+		setIsShortMovies(!isShortMovies);
 	}
 
 	function handleSearchSubmit(query) {
@@ -34,10 +34,10 @@ function SavedMovies(props) {
 
 	useEffect(() => {
 		const moviesCardList = filterMovies(savedMovies, searchQuery);
-		setFilteredMovies(shortMovies 
+		setFilteredMovies(isShortMovies 
 			? filterMovieDuration(moviesCardList) 
 			: moviesCardList);
-	}, [savedMovies, shortMovies, searchQuery]);
+	}, [savedMovies, isShortMovies, searchQuery]);
 
 	return (
 		<main className='saved-movies'>
