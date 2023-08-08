@@ -24,6 +24,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .profile__field:not(:last-child) {
@@ -54,6 +55,17 @@
   border: none;
   cursor: pointer;
   color: #000000;
+}
+
+.profile__error {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: normal;
+  color: #EE3465;
 }
 
 .profile__buttons {

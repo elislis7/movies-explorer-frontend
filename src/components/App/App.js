@@ -137,7 +137,10 @@ function App() {
           message: ERROR,
         });
       })
-      .finally(handlePopupInfoMessage)
+      .finally(() => {
+        setIsLoading(false);
+        handlePopupInfoMessage();
+      })
     }
 
     function handleSaveMovie(movie) {
@@ -164,7 +167,7 @@ function App() {
 
       apiMain.saveMovie(cardMovie, jwt)
         .then((newMovie) => {
-          setSavedMovies([newMovie.cardMovie, ...savedMovies]);
+          setSavedMovies([newMovie.movie, ...savedMovies]);
         })
         .catch((err) => console.log(`Произошла ошибка: ${err}`))
     }

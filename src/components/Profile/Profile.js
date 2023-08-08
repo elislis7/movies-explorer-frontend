@@ -41,7 +41,10 @@ function Profile(props) {
       name: values.name,
       email: values.email
     });
-    setIsFormChanging(false);
+
+    setTimeout(() => {
+      setIsFormChanging(false);
+    }, 5000);
   }
 
   function handleMakeChangeable() { 

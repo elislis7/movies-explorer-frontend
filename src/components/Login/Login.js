@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import './Login.css'
@@ -21,15 +20,10 @@ function Login(props) {
     onAuth, 
     isLoading 
   } = props;
-  const { values, handleChange, errors, isValid, resetForm, inputValidities } = useFormValidation();
-
-  const [message, setMessage] = useState('');
+  const { values, handleChange, errors, isValid, inputValidities } = useFormValidation();
 
   function handleSubmit(e) {
     e.preventDefault();
-
-    setMessage('');
-    resetForm();
     onAuth(values);
   }
 

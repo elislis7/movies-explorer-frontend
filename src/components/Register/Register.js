@@ -18,17 +18,11 @@ function Register(props) {
     linkText, 
     onRegister, 
     isLoading } = props;
-  const { values, handleChange, errors, isValid, resetForm, inputValidities } = useFormValidation();
-
-  const [message, setMessage] = useState('');
+  const { values, handleChange, errors, isValid, inputValidities } = useFormValidation();
 
   function handleSubmit(e) {
     e.preventDefault();
-
-    setMessage('');
-    resetForm();
     onRegister(values);
-    console.log(values)
   }
 
   return (
