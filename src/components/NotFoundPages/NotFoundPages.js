@@ -1,11 +1,11 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+/* import { useNavigate } from 'react-router-dom'; */
 
 import './NotFoundPages.css'
 
 function NotFoundPages() {
 
-	const navigate = useNavigate();
+	/* const navigate = useNavigate(); */
 
 	return (
 		<section className='page-error'>
@@ -13,7 +13,7 @@ function NotFoundPages() {
 			<p className='page-error__subtitle'>Страница не найдена</p>
 			<button 
 				className='page-error__button' 
-				onClick={() => navigate(-1)}>
+				onClick={() => window.history.go(-1)}>
 					Назад
 			</button>
 		</section>
