@@ -3,6 +3,7 @@
 <h4 align="center">Frontend part</h4>
 
 <p align="center"><img src="./src/images/images_readme/главная.gif" width="80%"></p>
+<!-- перегрузить видео , оно с желтыми полосками -->
 
 ## Описание проекта
 
@@ -25,7 +26,7 @@
 
 <h3 align="center">1. Вёрстка и JSX</h3>
 
-<p align="center"><img src="" width="80%"></p>
+<p align="center"><img src="./src/images/images_readme/главная.png" width="80%"></p>
 
 К данному этапу основными требованиями были:
 - Вёрстка по [макету](https://disk.yandex.ru/d/ihliJaPTjtnh7A);
@@ -54,13 +55,14 @@
   - Формы и плейсхолдеры стилизованы верно;
   - В разных частях проекта есть переиспользуемые блоки;
   - Все изображения оптимизированы — в том числе и .svg;
+  <!-- перегрузить видео , оно с желтыми полосками -->
   <details><summary><b>Демонстрация</b></summary>
   <p align="center"><img src="./src/images/images_readme/адаптив.gif" width="80%"></p>
   </details>
 
 <h3 align="center">2. Функциональность на «React» и JS</h3>
 
-<p align="center"><img src="./src/images/readme_images" width="80%"></p>
+<p align="center"><img src="./src/images/images_readme/профиль.png" width="80%"></p>
 
 Второй этап дипломной работы включает в себя:
 - Оформление асинхронных GET- и POST-запросов к API;;
@@ -71,15 +73,15 @@
 - Хранение JWT-токена в localStorage или в куке;
 - Обработка ошибок от API и оповещение пользователь об ошибке:
   <details><summary><b>Демонстрация</b></summary>
-  <p align="center"><img src="./src/images/images_readme/адаптив.gif" width="80%"></p>
+  <p align="center"><img src="./src/images/images_readme/ошибка.png" width="80%"></p>
   </details>
 - Настройка прелоадера так, чтобы он крутился, пока от сервера идёт ответ:
   <details><summary><b>Демонстрация</b></summary>
-  <p align="center"><img src="./src/images/images_readme" width="80%"></p>
+  <p align="center"><img src="./src/images/images_readme/preloader.mp4" width="80%"></p>
   </details>
 - При нажатии по карточке переводить на ютюб-трейлер фильма:
   <details><summary><b>Демонстрация</b></summary>
-  <p align="center"><img src="./src/images/images_readme" width="80%"></p>
+  <p align="center"><img src="./src/images/images_readme/link_younube.mp4" width="80%"></p>
   </details>
 
 Функциональность:
@@ -92,10 +94,10 @@
   - если регистрация успешна, то выводится сообщение об успешной регистрации и при ошибке регистрации - выводится сообщение об ошибке;
   - при успешной регистрации пользователь сразу авторизовывается и попадает на страницу "Фильмы";
   <details><summary><b>Демонстрация страницы "Регистрация"</b></summary>
-  <p align="center"><img src="./src/images/images_readme" width="80%"></p>
+  <p align="center"><img src="./src/images/images_readme/регистрация.gif" width="80%"></p>
   </details>
   <details><summary><b>Демонстрация страницы "Авторизация"</b></summary>
-  <p align="center"><img src="./src/images/images_readme" width="80%"></p>
+  <p align="center"><img src="./src/images/images_readme/авторизация.mp4" width="80%"></p>
   </details>
 - Страницы "Аккаунт":
   - при клике на кнопку "Редактировать" поля формы становнятся активны и можно вносить изменения;
@@ -103,32 +105,29 @@
   - eсли валидация не пройдена, кнопка «Сохранить» неактивна;
   - при клике на кнопку «Выйти из аккаунта» происходит редирект на главную страницу и удаление JWT из локального хранилища;
   <details><summary><b>Демонстрация</b></summary>
-  <p align="center"><img src="./src/images/images_readme" width="80%"></p>
+  <p align="center"><img src="./src/images/images_readme/редактирование.gif" width="80%"></p>
   </details>
 - Страницы "Фильмы":
   - блок результатов появляется только после обработки запроса, если пользователь ещё ничего не искал, блока с карточками на странице нет:
   <details><summary><b>Демонстрация</b></summary>
-  <p align="center"><img src="./src/images/images_readme" width="80%"></p>
+  <p align="center"><img src="./src/images/images_readme/блок_результатов.mp4" width="80%"></p>
   </details>
+  - результаты уже выполненного запроса сохраняется в localStorage;
   - количество оображаемых карточек зависит от ширины экрана:
   <details><summary><b>Демонстрация</b></summary>
-  <p align="center"><img src="./src/images/images_readme" width="80%"></p>
+  <p align="center"><img src="./src/images/images_readme/количество_карточек.gif" width="80%"></p>
   </details>
   - кнопка «Ещё» загружает дополнительный ряд карточек, который также зависит от ширины экрана и исчезает, когда в базе данных заканчиваются фильмы для отображения:
   <details><summary><b>Демонстрация</b></summary>
-  <p align="center"><img src="./src/images/images_readme" width="80%"></p>
-  </details>
-  - результаты уже выполненного запроса сохраняется в localStorage:
-  <details><summary><b>Демонстрация</b></summary>
-  <p align="center"><img src="./src/images/images_readme" width="80%"></p>
+  <p align="center"><img src="./src/images/images_readme/еще.mp4" width="80%"></p>
   </details>
   - кнопка "Сохранить" меняется при нажатии, а фильм попадает в "Сохранённые фильмы", при повторном нажатии фильм удаляется из списка "Сохранённые фильмы";
   <details><summary><b>Демонстрация</b></summary>
-  <p align="center"><img src="./src/images/images_readme" width="80%"></p>
+  <p align="center"><img src="./src/images/images_readme/сохраненные_фильмы.gif" width="80%"></p>
   </details>
   - осуществляется фильтрация фильмов по длительности (до 40 минут) при нажатии на кнопку "Короткометражки";
   <details><summary><b>Демонстрация</b></summary>
-  <p align="center"><img src="./src/images/images_readme" width="80%"></p>
+  <p align="center"><img src="./src/images/images_readme/короткометражки.gif" width="80%"></p>
   </details>
 
 ## [Ссылка на сайт](https://lis.movies-explorer.nomoreparties.sbs/)
@@ -149,3 +148,4 @@
   <!-- - поле name содержит только латиницу, кириллицу, пробел или дефис; КОСЯК С ВАЛИДАЦИЕЙ -->
   <!-- - [ ] доработать чтобы хедер зависил от размера экрана, так как при открытом хедере и при переходе на широкий экран отображается два хедера -->
   <!-- - [ ] прижать футер на странице фильмы -->
+  <!-- - [ ] название не отображается полность, хотябы чтобы при наведении оно отображалось полностью -->
