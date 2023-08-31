@@ -77,11 +77,11 @@
   </details>
 - Настройка прелоадера так, чтобы он крутился, пока от сервера идёт ответ:
   <details><summary><b>Демонстрация</b></summary>
-  <p align="center"><img src="./src/images/images_readme/preloader.mp4" width="80%"></p>
+  <p align="center"><img src="./src/images/images_readme/preloader.gif" width="80%"></p>
   </details>
 - При нажатии по карточке переводить на ютюб-трейлер фильма:
   <details><summary><b>Демонстрация</b></summary>
-  <p align="center"><img src="./src/images/images_readme/link_younube.mp4" width="80%"></p>
+  <p align="center"><img src="./src/images/images_readme/link_younube (1).gif" width="80%"></p>
   </details>
 
 Функциональность:
@@ -97,7 +97,7 @@
   <p align="center"><img src="./src/images/images_readme/регистрация.gif" width="80%"></p>
   </details>
   <details><summary><b>Демонстрация страницы "Авторизация"</b></summary>
-  <p align="center"><img src="./src/images/images_readme/авторизация.mp4" width="80%"></p>
+  <p align="center"><img src="./src/images/images_readme/авторизация.gif" width="80%"></p>
   </details>
 - Страницы "Аккаунт":
   - при клике на кнопку "Редактировать" поля формы становнятся активны и можно вносить изменения;
@@ -110,7 +110,7 @@
 - Страницы "Фильмы":
   - блок результатов появляется только после обработки запроса, если пользователь ещё ничего не искал, блока с карточками на странице нет:
   <details><summary><b>Демонстрация</b></summary>
-  <p align="center"><img src="./src/images/images_readme/блок_результатов.mp4" width="80%"></p>
+  <p align="center"><img src="./src/images/images_readme/блок_результатов.gif" width="80%"></p>
   </details>
   - результаты уже выполненного запроса сохраняется в localStorage;
   - количество оображаемых карточек зависит от ширины экрана:
