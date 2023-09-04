@@ -1,0 +1,8 @@
+/* @import url('../Movies/SearchForm/SearchForm.css'); */
+
+.element__delete {
+	background-image: url('../../images/delete.svg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: #F9F9F9;
+}

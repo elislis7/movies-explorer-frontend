@@ -1,0 +1,58 @@
+@import url(../FormAuth/FormAuth.css);
+
+.form__button-register {
+  width: 396px;
+  height: 45px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: #2BE080;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  margin-top: 69px;
+  margin-bottom: 16px;
+}
+
+.form__button-register:hover {
+  opacity: 0.8;
+}
+
+.form__button-register_disabled {
+  width: 320px;
+  height: 36px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #F8F8F8;
+  color: #000000;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  margin-top: 69px;
+  margin-bottom: 16px;
+}
+
+.form__button-register_disabled:hover {
+  opacity: 0.8;
+}
+
+/* стили меньше 1024px */
+@media screen and (max-width: 1023px) {
+  .form__button-register {
+    margin-top: 70px;
+    margin-bottom: 18px;
+  }
+}
+
+/* стили меньше 480px */
+@media screen and (max-width: 480px) {
+  .form__button-register {
+    width: 260px;
+    font-size: 12px;
+    line-height: 15px;
+    margin-top: 160px;
+    margin-bottom: 14px;
+  }
+}
